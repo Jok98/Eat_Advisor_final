@@ -1,0 +1,188 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.Font;
+/**
+ * 
+ * @author jokmoi<br>
+ * <br>
+ * La classe estrae i dati inseriti dall'utente e tramite create_tupla() crea una Stringa contenente tutti i dati neccesari per l'iscrizione nel DB<br>
+ * <br>
+ * Il pulsante Back nascode il frame attuale (Registration) e mostra nuovamente il frame Cliente<br>
+ *
+ */
+public class Registration extends JFrame {
+	static Registration frame = new Registration();
+	static Cliente window = new Cliente();
+	static Cliente_Sender c_sender;
+	static String tupla;
+	private JPanel contentPane;
+	private JTextField tf_nome;
+	private JTextField tf_cognome;
+	private JTextField tf_email;
+	private JTextField tf_comune_residenza;
+	private JTextField tf_sigla_provincia_residenza;
+	private JTextField tf_nickname;
+	private JTextField tf_password;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frame.setVisible(false);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Registration(){
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		//inizio btn back
+		JButton btnBack = new JButton("Back");
+		btnBack.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				window.frame_back_reg();
+				
+			}
+		});
+		btnBack.setBounds(335, 227, 89, 23);
+		contentPane.add(btnBack);
+		//fine btn back
+		
+		JButton btnConferma = new JButton("Conferma");
+		btnConferma.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				try {
+					InetAddress addr = InetAddress.getByName(null);
+					Socket socket = new Socket(addr, 8080);
+					tupla = create_tupla();
+					new  Cliente_Sender(socket,"Cliente");
+					
+					//System.out.println(tupla);
+					
+				} catch (IOException e1) {
+				
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnConferma.setBounds(148, 213, 111, 37);
+		contentPane.add(btnConferma);
+		
+		tf_nome = new JTextField();
+		tf_nome.setBounds(65, 13, 86, 20);
+		contentPane.add(tf_nome);
+		tf_nome.setColumns(10);
+		
+		tf_cognome = new JTextField();
+		tf_cognome.setBounds(268, 14, 86, 20);
+		contentPane.add(tf_cognome);
+		tf_cognome.setColumns(10);
+		
+		tf_email = new JTextField();
+		tf_email.setBounds(65, 54, 86, 20);
+		contentPane.add(tf_email);
+		tf_email.setColumns(10);
+		
+		tf_comune_residenza = new JTextField();
+		tf_comune_residenza.setBounds(209, 97, 86, 20);
+		contentPane.add(tf_comune_residenza);
+		tf_comune_residenza.setColumns(10);
+		
+		tf_sigla_provincia_residenza = new JTextField();
+		tf_sigla_provincia_residenza.setBounds(209, 128, 86, 20);
+		contentPane.add(tf_sigla_provincia_residenza);
+		tf_sigla_provincia_residenza.setColumns(10);
+		
+		JLabel lblEmail = new JLabel("Email : ");
+		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblEmail.setBounds(10, 54, 68, 17);
+		contentPane.add(lblEmail);
+		
+		JLabel lblNickname = new JLabel("Nickname : ");
+		lblNickname.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNickname.setBounds(184, 55, 89, 19);
+		contentPane.add(lblNickname);
+		
+		tf_nickname = new JTextField();
+		tf_nickname.setBounds(268, 54, 86, 20);
+		contentPane.add(tf_nickname);
+		tf_nickname.setColumns(10);
+		
+		JLabel lblPassword = new JLabel("Password : ");
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblPassword.setBounds(10, 157, 89, 23);
+		contentPane.add(lblPassword);
+		
+		tf_password = new JTextField();
+		tf_password.setBounds(94, 160, 86, 20);
+		contentPane.add(tf_password);
+		tf_password.setColumns(10);
+		
+		JLabel lblNome = new JLabel("Nome : ");
+		lblNome.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNome.setBounds(10, 12, 56, 19);
+		contentPane.add(lblNome);
+		
+		JLabel lblCognome = new JLabel("Cognome : ");
+		lblCognome.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblCognome.setBounds(184, 13, 89, 19);
+		contentPane.add(lblCognome);
+		
+		JLabel lblComuneDiResidenza = new JLabel("Comune di residenza : ");
+		lblComuneDiResidenza.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblComuneDiResidenza.setBounds(10, 98, 166, 14);
+		contentPane.add(lblComuneDiResidenza);
+		
+		JLabel lblSiglaProvinciaDi = new JLabel("Sigla provincia di residenza : ");
+		lblSiglaProvinciaDi.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblSiglaProvinciaDi.setBounds(10, 126, 249, 20);
+		contentPane.add(lblSiglaProvinciaDi);
+		
+	}
+	/**
+	 * vengono concatenati in un unica stringa tutti i dati inseriti dall'utente 
+	 * che verranno poi trasferiti al server
+	 * @return tupla
+	 */
+	public String create_tupla() {
+		String tupla = tf_nome.getText()+" "+tf_cognome.getText()
+		+" "+tf_comune_residenza.getText()+" "+tf_sigla_provincia_residenza.getText()
+		+" "+tf_email.getText()+" "+tf_nickname.getText()+" "+tf_password.getText();
+		System.out.println("dal metodo : "+tupla);
+		return tupla;
+		
+	}
+}
