@@ -142,58 +142,58 @@ public class Ristorante extends JFrame {
 		contentPane.add(btnConferma);
 		
 		tf_nome = new JTextField();
-		tf_nome.setBounds(94, 13, 86, 20);
+		tf_nome.setBounds(109, 58, 86, 20);
 		contentPane.add(tf_nome);
 		tf_nome.setColumns(10);
 		
 		tf_indirizzo = new JTextField();
-		tf_indirizzo.setBounds(313, 54, 86, 20);
+		tf_indirizzo.setBounds(328, 99, 86, 20);
 		contentPane.add(tf_indirizzo);
 		tf_indirizzo.setColumns(10);
 		
 		tf_cell = new JTextField();
-		tf_cell.setBounds(313, 13, 86, 20);
+		tf_cell.setBounds(328, 58, 86, 20);
 		contentPane.add(tf_cell);
 		tf_cell.setColumns(10);
 		
 		tf_tipologia = new JTextField();
-		tf_tipologia.setBounds(313, 99, 86, 20);
+		tf_tipologia.setBounds(328, 144, 86, 20);
 		contentPane.add(tf_tipologia);
 		tf_tipologia.setColumns(10);
 		
 		JLabel lblcell = new JLabel("Cell : ");
 		lblcell.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblcell.setBounds(258, 13, 68, 17);
+		lblcell.setBounds(273, 58, 68, 17);
 		contentPane.add(lblcell);
 		
 		JLabel lblsito = new JLabel("Sito web : ");
 		lblsito.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblsito.setBounds(10, 100, 89, 19);
+		lblsito.setBounds(25, 145, 89, 19);
 		contentPane.add(lblsito);
 		
 		tf_sito = new JTextField();
-		tf_sito.setBounds(94, 99, 86, 20);
+		tf_sito.setBounds(109, 144, 86, 20);
 		contentPane.add(tf_sito);
 		tf_sito.setColumns(10);
 		
 		JLabel lblNome = new JLabel("Nome : ");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNome.setBounds(10, 12, 56, 19);
+		lblNome.setBounds(25, 57, 56, 19);
 		contentPane.add(lblNome);
 		
 		JLabel lblIndirizzo = new JLabel("Indirizzo : ");
 		lblIndirizzo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblIndirizzo.setBounds(229, 53, 89, 19);
+		lblIndirizzo.setBounds(244, 98, 89, 19);
 		contentPane.add(lblIndirizzo);
 		
 		JLabel lblTipologia = new JLabel("Tipologia : ");
 		lblTipologia.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblTipologia.setBounds(229, 98, 80, 19);
+		lblTipologia.setBounds(244, 143, 80, 19);
 		contentPane.add(lblTipologia);
 		
 		JLabel lblComune = new JLabel("Comune : ");
 		lblComune.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblComune.setBounds(10, 57, 74, 14);
+		lblComune.setBounds(25, 102, 74, 14);
 		contentPane.add(lblComune);
 		
 		comboBox = new JComboBox();
@@ -208,8 +208,18 @@ public class Ristorante extends JFrame {
 				"Torino", "Ogliastra", "Trapani", "Trento", "Treviso", "Trieste", "Udine", "Varese", "Venezia", "Verbano-Cusio-Ossola", "Vercelli", "Verona",
 				"Vibo Valentia", "Vicenza", "Viterbo"}));
 		comboBox.setToolTipText("");
-		comboBox.setBounds(94, 53, 86, 22);
+		comboBox.setBounds(109, 98, 86, 22);
 		contentPane.add(comboBox);
+		
+		JLabel lblNewLabel = new JLabel("Eat advisor");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(171, 8, 101, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Restaurant Version");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		lblNewLabel_1.setBounds(158, 33, 124, 14);
+		contentPane.add(lblNewLabel_1);
 		
 	}
 	/**

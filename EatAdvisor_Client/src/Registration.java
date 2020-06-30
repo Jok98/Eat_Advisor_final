@@ -1,6 +1,4 @@
-
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -13,6 +11,7 @@ import java.net.Socket;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.SystemColor;
 /**
  * 
  * @author Matteo Moi 737574 Varese<br><br>
@@ -61,6 +60,7 @@ public class Registration extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.info);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -110,74 +110,79 @@ public class Registration extends JFrame {
 		contentPane.add(btnConferma);
 		
 		tf_nome = new JTextField();
-		tf_nome.setBounds(65, 13, 86, 20);
+		tf_nome.setBounds(65, 39, 86, 20);
 		contentPane.add(tf_nome);
 		tf_nome.setColumns(10);
 		
 		tf_cognome = new JTextField();
-		tf_cognome.setBounds(268, 14, 86, 20);
+		tf_cognome.setBounds(268, 40, 86, 20);
 		contentPane.add(tf_cognome);
 		tf_cognome.setColumns(10);
 		
 		tf_email = new JTextField();
-		tf_email.setBounds(65, 54, 86, 20);
+		tf_email.setBounds(65, 80, 86, 20);
 		contentPane.add(tf_email);
 		tf_email.setColumns(10);
 		
 		tf_comune_residenza = new JTextField();
-		tf_comune_residenza.setBounds(209, 97, 86, 20);
+		tf_comune_residenza.setBounds(268, 145, 86, 20);
 		contentPane.add(tf_comune_residenza);
 		tf_comune_residenza.setColumns(10);
 		
 		tf_sigla_provincia_residenza = new JTextField();
-		tf_sigla_provincia_residenza.setBounds(209, 128, 86, 20);
+		tf_sigla_provincia_residenza.setBounds(268, 176, 86, 20);
 		contentPane.add(tf_sigla_provincia_residenza);
 		tf_sigla_provincia_residenza.setColumns(10);
 		
 		JLabel lblEmail = new JLabel("Email : ");
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblEmail.setBounds(10, 54, 68, 17);
+		lblEmail.setBounds(10, 80, 68, 17);
 		contentPane.add(lblEmail);
 		
 		JLabel lblNickname = new JLabel("Nickname : ");
 		lblNickname.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNickname.setBounds(184, 55, 89, 19);
+		lblNickname.setBounds(184, 81, 89, 19);
 		contentPane.add(lblNickname);
 		
 		tf_nickname = new JTextField();
-		tf_nickname.setBounds(268, 54, 86, 20);
+		tf_nickname.setBounds(268, 80, 86, 20);
 		contentPane.add(tf_nickname);
 		tf_nickname.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password : ");
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblPassword.setBounds(10, 157, 89, 23);
+		lblPassword.setBounds(184, 111, 89, 23);
 		contentPane.add(lblPassword);
 		
 		tf_password = new JTextField();
-		tf_password.setBounds(94, 160, 86, 20);
+		tf_password.setBounds(268, 114, 86, 20);
 		contentPane.add(tf_password);
 		tf_password.setColumns(10);
 		
 		JLabel lblNome = new JLabel("Nome : ");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNome.setBounds(10, 12, 56, 19);
+		lblNome.setBounds(10, 38, 56, 19);
 		contentPane.add(lblNome);
 		
 		JLabel lblCognome = new JLabel("Cognome : ");
 		lblCognome.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCognome.setBounds(184, 13, 89, 19);
+		lblCognome.setBounds(184, 39, 89, 19);
 		contentPane.add(lblCognome);
 		
 		JLabel lblComuneDiResidenza = new JLabel("Comune di residenza : ");
 		lblComuneDiResidenza.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblComuneDiResidenza.setBounds(10, 98, 166, 14);
+		lblComuneDiResidenza.setBounds(69, 146, 166, 14);
 		contentPane.add(lblComuneDiResidenza);
 		
 		JLabel lblSiglaProvinciaDi = new JLabel("Sigla provincia di residenza : ");
 		lblSiglaProvinciaDi.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSiglaProvinciaDi.setBounds(10, 126, 249, 20);
+		lblSiglaProvinciaDi.setBounds(69, 174, 249, 20);
 		contentPane.add(lblSiglaProvinciaDi);
+		
+		JLabel lblNewLabel = new JLabel("Registrazione utente");
+		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		lblNewLabel.setBounds(148, 11, 135, 17);
+		contentPane.add(lblNewLabel);
 		
 	}
 	/**
