@@ -99,6 +99,7 @@ public class Cliente_Sender extends Thread{
 				login.frame.setVisible(true);
 				login.btnInvia.setEnabled(false);
 				login.tf_comment.setEnabled(false);
+				login.cb_star.setEnabled(false);
 				cliente.window.frame.setVisible(false);
 				JOptionPane.showMessageDialog(message,"Accesso consentito");
 				break;

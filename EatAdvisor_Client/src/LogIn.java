@@ -1,4 +1,3 @@
-
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -64,6 +63,7 @@ public class LogIn {
 	private JPanel contentPane;
 	static JList list_result;
 	private JTextField tf_nome;
+	static JComboBox cb_star;
 	static JButton btnInvia;
 	private JTextField tf_tipologia;
 	static JComboBox comboBox = new JComboBox();
@@ -326,6 +326,11 @@ public class LogIn {
 		});
 		btnInvia.setBounds(285, 342, 180, 25);
 		contentPane.add(btnInvia);
+		
+		cb_star = new JComboBox();
+		cb_star.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
+		cb_star.setBounds(403, 218, 62, 22);
+		contentPane.add(cb_star);
 		//fine invia
 		
 	}
@@ -334,6 +339,7 @@ public class LogIn {
 		String nome = (tf_nome.getText().equals("")) ? "null":tf_nome.getText();
 		String tmp = (String) comboBox.getSelectedItem();
 		String comune = (comboBox.getSelectedItem().equals("")) ? "null":tmp;
+		
 		String tipologia = (tf_tipologia.getText().equals("")) ? "null":tf_tipologia.getText() ;
 		
 		String tupla = nome+" "+comune+" "+tipologia;
@@ -344,9 +350,12 @@ public class LogIn {
 	}
 	
 	public String create_comment() {
+		String tmp_star = (String) cb_star.getSelectedItem();
+		//String star = (cb_star.getSelectedItem().equals("")) ? "null":tmp_star;
 		String tmp = tf_comment.getText();
 		String restaurant = restaurant_name.get(name_index);
-		comment = restaurant+"--"+tmp;
+		String id = Cliente.id_tmp;
+		comment = restaurant+"--"+tmp+"--"+tmp_star+"--"+id;
 		tf_comment.setText("");
 		return comment;
 	}

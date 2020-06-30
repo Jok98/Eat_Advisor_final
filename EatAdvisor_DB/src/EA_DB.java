@@ -166,7 +166,8 @@ public class EA_DB {
 		ResultSet rslt_set = stmt.executeQuery("SELECT * FROM Restaurant");
 		while(rslt_set.next()){
 		String tmp_name = rslt_set.getString("nome");
-		if(nome.equals(tmp_name)) {commento = rslt_set.getString("commento")+"\r\n"+"-------"+"\r\n"+comment[1];}
+		//String tmp_star = rslt_set.getString("nome");
+		if(nome.equals(tmp_name)) {commento = rslt_set.getString("commento")+"\r\n"+"-------"+"\r\n"+"Utente : "+comment[3]+"\r\n"+"stelle : "+comment[2]+" su 5"+"\r\n"+comment[1];}
 		}
 		//Statement statement = connection.createStatement();	 
 		//"UPDATE test_table SET test_col='new_test_value' WHERE test_col = 'test_value'");

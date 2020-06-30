@@ -29,9 +29,7 @@ import javax.swing.JComboBox;
  * 
  */
 public class Ristorante extends JFrame {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	static Ristorante frame = new Ristorante();
 	static JComboBox comboBox;

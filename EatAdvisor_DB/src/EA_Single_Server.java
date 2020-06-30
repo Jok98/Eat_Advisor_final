@@ -90,9 +90,9 @@ public class EA_Single_Server extends Thread{
 				break;
 			
 			case "Client_comment":
-				tupla = new String[2];
+				tupla = new String[4];
 				String[] commento = client_data();
-				System.out.println("Server riceve commento : "+commento[0]+commento[1]);
+				System.out.println("Server riceve commento : "+commento[0]+" | "+commento[1]+" | "+commento[2]+" | "+commento[3]);
 				db.insert_comment(commento);
 				System.out.println();
 				db.show_table("SELECT * FROM Restaurant");

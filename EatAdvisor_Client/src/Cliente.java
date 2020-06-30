@@ -43,6 +43,7 @@ public class Cliente {
 	static Registration reg = new Registration();
 	static LogIn login;
 	static String data;
+	static String id_tmp;
 	static Socket socket;
 	static Frame message = new Frame();
 	private JPasswordField tf_password;
@@ -108,6 +109,7 @@ public class Cliente {
 				try {
 					InetAddress addr = InetAddress.getByName(null);
 					socket = new Socket(addr, 8080);
+					id_tmp = tf_ID.getText();
 					data = tf_ID.getText()+" "+tf_password.getText();
 					//System.out.println(data);
 					frame.setVisible(false);
