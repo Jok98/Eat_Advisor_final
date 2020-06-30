@@ -170,12 +170,12 @@ public class Cliente {
 		tf_ID.setColumns(10);
 		
 		JLabel lblID = new JLabel("ID : ");
-		lblID.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblID.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblID.setBounds(149, 96, 35, 14);
 		frame.getContentPane().add(lblID);
 		
 		JLabel lblPassword = new JLabel("Password : ");
-		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPassword.setBounds(117, 147, 71, 14);
 		frame.getContentPane().add(lblPassword);
 		
