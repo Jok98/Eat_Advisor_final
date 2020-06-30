@@ -144,7 +144,7 @@ public class Cliente {
 		frame.getContentPane().add(btnRegistrati);
 		
 		//
-		JButton btnNoLogIn = new JButton("Versione senza login");
+		JButton btnNoLogIn = new JButton("Login non iscritti");
 		btnNoLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.setVisible(false);
@@ -161,7 +161,7 @@ public class Cliente {
 				tf_password.setText("");
 			}
 		});
-		btnNoLogIn.setBounds(295, 227, 129, 23);
+		btnNoLogIn.setBounds(283, 227, 141, 23);
 		frame.getContentPane().add(btnNoLogIn);
 		
 		tf_ID = new JTextField();
