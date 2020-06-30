@@ -1,4 +1,4 @@
-package clienti;
+
 import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Frame;
