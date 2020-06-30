@@ -20,7 +20,7 @@ public class EA_Master_Server {
 		db.db_start_conn();
 		db.new_table("CREATE TABLE Cliente(nome VARCHAR(20),  cognome VARCHAR(20),  comune_residenza VARCHAR(30), "
 				+ "sigla_provincia_residenza VARCHAR(30), email VARCHAR(40), nickname VARCHAR(15), password VARCHAR(30) )");
-		db.new_table("CREATE TABLE Restaurant(nome VARCHAR(20), comune VARCHAR(30), tipologia VARCHAR(20), indirizzo VARCHAR(30), cell VARCHAR(10), sito VARCHAR(40), commento VARCHAR(250) )");
+		db.new_table("CREATE TABLE Restaurant(nome VARCHAR(20), comune VARCHAR(30), tipologia VARCHAR(20), indirizzo VARCHAR(30), cell VARCHAR(10), sito VARCHAR(40), commento VARCHAR(7000) )");
 		
 		create_registry();
 		create_single_server();

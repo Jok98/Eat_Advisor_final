@@ -72,6 +72,7 @@ public class Cliente_Sender extends Thread{
 					login.frame.setVisible(true);
 					login.btnInvia.setEnabled(true);
 					login.tf_comment.setEnabled(true);
+					login.cb_star.setEnabled(true);
 					cliente.window.frame.setVisible(false);
 					JOptionPane.showMessageDialog(message,"LogIn effettuato");
 				}else{

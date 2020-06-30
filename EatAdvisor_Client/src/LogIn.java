@@ -156,8 +156,14 @@ public class LogIn {
 				
 				list_result.setBounds(285, 37, 180, 111);
 				contentPane.add(list_result);
+				
+				JScrollPane scroll = new JScrollPane (list_result);
+				scroll.setBounds(285, 37, 180, 111);
+				contentPane.add(scroll);
+				
 				//fine  lista
 		
+				
 		//inizio btn cerca
 		JButton btnCerca = new JButton("Cerca");
 		btnCerca.addMouseListener(new MouseAdapter() {
@@ -284,9 +290,9 @@ public class LogIn {
 		
 
 		
-		JScrollPane scroll = new JScrollPane (info_restaurant);
-		scroll.setBounds(44, 243, 206, 124);
-		contentPane.add(scroll);
+		JScrollPane scroll_info = new JScrollPane (info_restaurant);
+		scroll_info.setBounds(44, 243, 206, 124);
+		contentPane.add(scroll_info);
 		
 		//inizio btn vedi
 		JButton btnVedi = new JButton("Vedi");
