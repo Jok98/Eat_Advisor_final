@@ -99,6 +99,7 @@ public class LogIn {
 	@SuppressWarnings("unchecked")
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 491, 409);
