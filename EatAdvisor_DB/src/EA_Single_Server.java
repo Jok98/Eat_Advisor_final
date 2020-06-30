@@ -4,14 +4,13 @@ import java.net.*;
 import java.sql.SQLException;
 import java.util.Scanner;
 /**
+ * * @author Matteo Moi 737574 Varese<br>
  * La classe EA_Single_Server ha il compito di gestire le richieste da parte delle app Cliente e Restaurant :</br>
  * - case "Cliente": viene gestita l'iscrizione tramite l'inserimento dei dati inviati dall'app Cliente (tramite socket)nella table "Cliente" nel DB </br>
  * - case "Restaurant": viene gestita l'iscrizione tramite l'inserimento dei dati inviati dall'app Ristorante (tramite socket)nella table "Restaurant" nel DB </br>
  * - case "Cliente_accesso" verifica che i dati inseriti dall'utente nell'app Cliente (per effettuare il login) siano presenti e coincidano con quelli presenti sul DB</br>
  * - case "Cliente_search" : si occupa della ricerca nel database dei ristoranti aventi uguali caratteristiche richieste dall'utente</br>
  * - case "Client_comment" : inserisce nel DB il commento scritto dall'utente riguardante uno specifico ristorante</br>
- * 
- * @author jokmoi
  *
  */
 

@@ -23,7 +23,7 @@ import javax.swing.JComboBox;
 
 /**
  * 
- * @author jokmoi
+ * @author Matteo Moi 737574 Varese<br>
  * La clesse permette tramite GUI all'utente di inserire i dati necessari per iscrivere/inserire nel db il ristorante<br>
  * All'avvio dell'applicazione viene effettuato un tentativo di connessione al server tramite socket<br>
  * se esso non e' stato lanciato in precedenza l'app tenta di accedere al file jar del server_DB<br>

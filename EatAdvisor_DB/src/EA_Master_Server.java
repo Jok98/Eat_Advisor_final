@@ -6,9 +6,9 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.sql.SQLException;
 /**
+ * @author Matteo Moi 737574 Varese<br>
  * la classe inizializza il socket e lo mette in attesa di una richiesta da parte del cliente
  * per ogni richiesta ricevuta crea un secondo server(Slave) che si occupa di gestire la singola richiesta
- * @author jokmoi
  *
  */
 public class EA_Master_Server {

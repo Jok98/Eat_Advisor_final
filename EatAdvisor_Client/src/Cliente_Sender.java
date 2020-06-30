@@ -10,7 +10,7 @@ import java.net.Socket;
 
 import javax.swing.JOptionPane;
 /**
- * @author jokmoi<br>
+ *@author Matteo Moi 737574 Varese<br><br>
  * <br>
  * La classe si occupa di inviare al server i dati (tramite socket) dell'utente in base al tipo di azione/richiesta dell'utente : <br>
  * ad ogni nuova istanza della classe viene inviato al server (tramite socket) una stringa necessaria per identificare la richiesta(reconizer) del client

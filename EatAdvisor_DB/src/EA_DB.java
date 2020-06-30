@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  * 
- * @author jokmoi</br>
+ * @author Matteo Moi 737574 Varese<br></br>
  * La classe EA_DB si occupa di gestire: </br>
  * - db_start_conn() : creazione e connessione al database </br>
  * - new_table(String table_str) : creare le tablelle Restaurant e Cliente</br>

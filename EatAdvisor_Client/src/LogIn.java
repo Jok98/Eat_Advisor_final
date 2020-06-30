@@ -30,7 +30,7 @@ import javax.swing.JScrollPane;
 
 /**
  * 
- * @author jokmoi<br>
+ * @author Matteo Moi 737574 Varese<br><br>
  * <br>
  *La classe gestisce 4 funzioni : <br>
  *- Ricerca dei ristorante tramite nome | comune | tipologia | tipologia e comune<br>

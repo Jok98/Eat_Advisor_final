@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 /**
- * @author jokmoi <br>
+ * @author Matteo Moi 737574 Varese<br>
  * <br>
  * La classe si occupa di inviare al server i dati dell'utente per la sua iscrizione tramite socket <br>
  */

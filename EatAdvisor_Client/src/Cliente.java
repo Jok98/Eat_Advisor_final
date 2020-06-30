@@ -20,7 +20,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 /**
  * 
- * @author Matteo Moi<br>
+ * @author Matteo Moi 737574 Varese<br>
  * <br>
  * La classe Cliente gestisce il reindirizzamento ai frame :<br>
  * -Registration(che gestisce la registrazione dell'utente)<br>

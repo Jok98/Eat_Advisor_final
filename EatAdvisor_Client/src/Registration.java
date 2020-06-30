@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 /**
  * 
- * @author jokmoi<br>
+ * @author Matteo Moi 737574 Varese<br><br>
  * <br>
  * La classe estrae i dati inseriti dall'utente e tramite create_tupla() crea una Stringa contenente tutti i dati neccesari per l'iscrizione nel DB<br>
  * <br>
