@@ -1,3 +1,4 @@
+package server;
 import java.awt.Frame;
 import java.sql.Connection;
 import java.sql.DriverManager;
