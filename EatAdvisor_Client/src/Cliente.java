@@ -18,6 +18,8 @@ import java.net.ConnectException;
 import java.net.InetAddress;
 import java.net.Socket;
 import javax.swing.JPasswordField;
+import java.awt.Font;
+import java.awt.SystemColor;
 /**
  * 
  * @author Matteo Moi 737574 Varese<br>
@@ -97,6 +99,7 @@ public class Cliente {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(SystemColor.info);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -125,7 +128,7 @@ public class Cliente {
 	
 			}
 		});
-		btnAccedi.setBounds(165, 143, 89, 23);
+		btnAccedi.setBounds(162, 227, 89, 23);
 		frame.getContentPane().add(btnAccedi);
 		
 		JButton btnRegistrati = new JButton("Registrati");
@@ -137,7 +140,7 @@ public class Cliente {
 				
 			}
 		});
-		btnRegistrati.setBounds(10, 208, 89, 23);
+		btnRegistrati.setBounds(34, 227, 89, 23);
 		frame.getContentPane().add(btnRegistrati);
 		
 		//
@@ -162,21 +165,33 @@ public class Cliente {
 		frame.getContentPane().add(btnNoLogIn);
 		
 		tf_ID = new JTextField();
-		tf_ID.setBounds(73, 41, 86, 20);
+		tf_ID.setBounds(190, 93, 86, 20);
 		frame.getContentPane().add(tf_ID);
 		tf_ID.setColumns(10);
 		
 		JLabel lblID = new JLabel("ID : ");
-		lblID.setBounds(32, 44, 35, 14);
+		lblID.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblID.setBounds(149, 96, 35, 14);
 		frame.getContentPane().add(lblID);
 		
 		JLabel lblPassword = new JLabel("Password : ");
-		lblPassword.setBounds(191, 44, 71, 14);
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblPassword.setBounds(117, 147, 71, 14);
 		frame.getContentPane().add(lblPassword);
 		
 		tf_password = new JPasswordField();
-		tf_password.setBounds(264, 41, 86, 20);
+		tf_password.setBounds(190, 144, 86, 20);
 		frame.getContentPane().add(tf_password);
+		
+		JLabel lblNewLabel = new JLabel("Eat advisor");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(175, 11, 101, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Client Version");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		lblNewLabel_1.setBounds(175, 36, 89, 14);
+		frame.getContentPane().add(lblNewLabel_1);
 	}
 	
 	public void frame_back_log() {

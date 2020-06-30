@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
+import java.awt.SystemColor;
 
 /**
  * 
@@ -104,19 +105,23 @@ public class LogIn {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 491, 409);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.info);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNome = new JLabel("Nome : ");
+		lblNome.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNome.setBounds(10, 24, 46, 14);
 		contentPane.add(lblNome);
 		
 		JLabel lblProvincia = new JLabel("Provincia : ");
+		lblProvincia.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblProvincia.setBounds(10, 63, 62, 14);
 		contentPane.add(lblProvincia);
 		
 		JLabel lblTipologia = new JLabel("Tipologia : ");
+		lblTipologia.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblTipologia.setBounds(10, 107, 62, 14);
 		contentPane.add(lblTipologia);
 		

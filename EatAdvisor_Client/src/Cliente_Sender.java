@@ -94,7 +94,7 @@ public class Cliente_Sender extends Thread{
 				
 				this.interrupt();
 				break;
-				
+				 
 			case "Cliente_accesso_free":
 				login.frame.setVisible(true);
 				login.btnInvia.setEnabled(false);

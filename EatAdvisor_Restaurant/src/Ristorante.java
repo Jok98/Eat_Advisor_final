@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.Frame;
 import javax.swing.JComboBox;
+import java.awt.SystemColor;
 
 /**
  * 
@@ -95,6 +96,7 @@ public class Ristorante extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.info);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
