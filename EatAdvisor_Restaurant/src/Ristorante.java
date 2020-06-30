@@ -1,5 +1,3 @@
-
-import java.awt.BorderLayout;
 import java.awt.Desktop;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -11,7 +9,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import java.net.ConnectException;
 import java.net.InetAddress;
 import java.net.Socket;
 import javax.swing.JTextField;
@@ -116,7 +113,7 @@ public class Ristorante extends JFrame {
 
 			}
 		});
-		btnDelete.setBounds(335, 227, 89, 23);
+		btnDelete.setBounds(313, 227, 111, 23);
 		contentPane.add(btnDelete);
 		//fine btn canc
 		

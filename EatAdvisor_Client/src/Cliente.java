@@ -1,4 +1,3 @@
-
 import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Frame;
@@ -18,6 +17,7 @@ import java.io.IOException;
 import java.net.ConnectException;
 import java.net.InetAddress;
 import java.net.Socket;
+import javax.swing.JPasswordField;
 /**
  * 
  * @author Matteo Moi 737574 Varese<br>
@@ -38,7 +38,6 @@ import java.net.Socket;
 public class Cliente {
 
 	JFrame frame;
-	private JTextField tf_password;
 	private JTextField tf_ID;
 	static Cliente window;
 	static Registration reg = new Registration();
@@ -46,6 +45,7 @@ public class Cliente {
 	static String data;
 	static Socket socket;
 	static Frame message = new Frame();
+	private JPasswordField tf_password;
 	/**
 	 * 
 	 * Launch the application.
@@ -157,11 +157,6 @@ public class Cliente {
 		});
 		btnNoLogIn.setBounds(295, 227, 129, 23);
 		frame.getContentPane().add(btnNoLogIn);
-		//
-		tf_password = new JTextField();
-		tf_password.setBounds(272, 41, 86, 20);
-		frame.getContentPane().add(tf_password);
-		tf_password.setColumns(10);
 		
 		tf_ID = new JTextField();
 		tf_ID.setBounds(73, 41, 86, 20);
@@ -175,6 +170,10 @@ public class Cliente {
 		JLabel lblPassword = new JLabel("Password : ");
 		lblPassword.setBounds(191, 44, 71, 14);
 		frame.getContentPane().add(lblPassword);
+		
+		tf_password = new JPasswordField();
+		tf_password.setBounds(264, 41, 86, 20);
+		frame.getContentPane().add(tf_password);
 	}
 	
 	public void frame_back_log() {
@@ -189,5 +188,4 @@ public class Cliente {
 		//login.setVisible(false);
 		
 	}
-
 }

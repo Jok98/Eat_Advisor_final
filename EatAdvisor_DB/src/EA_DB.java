@@ -51,13 +51,13 @@ public class EA_DB {
 	    	conn = DriverManager.getConnection(jbdc_url);
 			System.out.println("Connessione al database aperta !");
 		} else {
-			System.out.println("Connessione al database gi� aperta !");
+			System.out.println("Connessione al database gia' aperta !");
 		}	
 	}
 	
 	/**
-	 * il metodo viene chiamato 2 volte per creare le tabelle Cliente & Restaurant se esistono gi� viene segnalato su console
-	 * @param table_str � una stringa contenete le istruzioni per creare le tabelle neccessarie
+	 * il metodo viene chiamato 2 volte per creare le tabelle Cliente & Restaurant se esistono gia' viene segnalato su console
+	 * @param table_str e' una stringa contenete le istruzioni per creare le tabelle neccessarie
 	 * 
 	 * @throws SQLException
 	 */
@@ -71,7 +71,7 @@ public class EA_DB {
 			conn.close();
 		} catch (SQLException e) {
 			
-			System.out.println("La tabella � gi� esistente");
+			System.out.println("La tabella esiste gia' ");
 			//conn.close();
 		}
 		//conn.close();
@@ -80,7 +80,7 @@ public class EA_DB {
 	
 	/**
 	 * il metodo utilizza i dati ricevuti per salvarli nella tabella Cliente
-	 * @param data � un array contenente in ogni posizione un dato significante dell'utente
+	 * @param data e' un array contenente in ogni posizione un dato significante dell'utente
 	 * @throws SQLException
 	 */
 	public void cliente_registration(String[] data) throws SQLException {

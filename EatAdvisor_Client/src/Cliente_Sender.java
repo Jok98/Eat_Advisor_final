@@ -117,7 +117,7 @@ public class Cliente_Sender extends Thread{
 	
 	/**
 	 * il metodo invia i dati ottenuti al server
-	 * @param tupla � una stringa contenente i dati inseriti dall'utente nella gui per l'iscrizione
+	 * @param tupla e' una stringa contenente i dati inseriti dall'utente nella gui per l'iscrizione
 	 * @throws IOException
 	 */
 	public void send_data(String tupla) throws IOException {

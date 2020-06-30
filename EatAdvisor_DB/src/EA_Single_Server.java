@@ -106,7 +106,7 @@ public class EA_Single_Server extends Thread{
 			
 		} catch (IOException | SQLException | NullPointerException e) {
 			
-			System.out.println("Applicazione client disconnessa");
+			//System.out.println("Applicazione client disconnessa");
 		}
 
 	}
