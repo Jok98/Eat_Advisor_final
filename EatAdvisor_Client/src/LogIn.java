@@ -111,22 +111,22 @@ public class LogIn {
 		contentPane.setLayout(null);
 		
 		JLabel lblNome = new JLabel("Nome : ");
-		lblNome.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNome.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNome.setBounds(10, 24, 46, 14);
 		contentPane.add(lblNome);
 		
 		JLabel lblProvincia = new JLabel("Provincia : ");
-		lblProvincia.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblProvincia.setBounds(10, 63, 62, 14);
+		lblProvincia.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblProvincia.setBounds(10, 63, 75, 14);
 		contentPane.add(lblProvincia);
 		
 		JLabel lblTipologia = new JLabel("Tipologia : ");
-		lblTipologia.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblTipologia.setBounds(10, 107, 62, 14);
+		lblTipologia.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblTipologia.setBounds(10, 107, 75, 14);
 		contentPane.add(lblTipologia);
 		
 		tf_nome = new JTextField();
-		tf_nome.setBounds(76, 21, 121, 20);
+		tf_nome.setBounds(95, 22, 121, 20);
 		contentPane.add(tf_nome);
 		tf_nome.setColumns(10);
 
@@ -219,7 +219,7 @@ public class LogIn {
 		//fine btn cerca
 		
 		tf_tipologia = new JTextField();
-		tf_tipologia.setBounds(76, 104, 121, 20);
+		tf_tipologia.setBounds(95, 105, 121, 20);
 		contentPane.add(tf_tipologia);
 		tf_tipologia.setColumns(10);
 		
@@ -235,7 +235,7 @@ public class LogIn {
 				"Torino", "Ogliastra", "Trapani", "Trento", "Treviso", "Trieste", "Udine", "Varese", "Venezia", "Verbano-Cusio-Ossola", "Vercelli", "Verona",
 				"Vibo Valentia", "Vicenza", "Viterbo"}));
 		comboBox.setToolTipText("");
-		comboBox.setBounds(76, 61, 121, 18);
+		comboBox.setBounds(95, 62, 121, 18);
 		contentPane.add(comboBox);
 		
 		//inizio btn back
@@ -278,7 +278,7 @@ public class LogIn {
 		contentPane.add(lblInfoRistorante);
 		
 		tf_comment = new JTextField();
-		tf_comment.setBounds(285, 243, 180, 99);
+		tf_comment.setBounds(285, 271, 180, 71);
 		contentPane.add(tf_comment);
 		tf_comment.setColumns(10);
 		
@@ -309,7 +309,7 @@ public class LogIn {
 		
 		lblRecensione = new JLabel("Recensione :");
 		lblRecensione.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblRecensione.setBounds(292, 218, 115, 14);
+		lblRecensione.setBounds(285, 218, 122, 14);
 		contentPane.add(lblRecensione);
 		
 		
@@ -335,8 +335,13 @@ public class LogIn {
 		
 		cb_star = new JComboBox();
 		cb_star.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		cb_star.setBounds(403, 218, 62, 22);
+		cb_star.setBounds(327, 238, 62, 22);
 		contentPane.add(cb_star);
+		
+		JLabel lblNewLabel = new JLabel("Stelle :");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setBounds(285, 243, 46, 14);
+		contentPane.add(lblNewLabel);
 		//fine invia
 		
 	}
