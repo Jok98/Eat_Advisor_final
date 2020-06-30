@@ -69,7 +69,14 @@ public class Registration extends JFrame {
 		btnBack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				tf_nome.setText("");
+				tf_cognome.setText("");
+				tf_comune_residenza.setText("");
+				tf_sigla_provincia_residenza.setText("");
+				tf_email.setText("");
+				tf_nickname.setText("");
+				tf_password.setText("");
+
 				window.frame_back_reg();
 				
 			}

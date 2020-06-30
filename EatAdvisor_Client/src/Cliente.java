@@ -25,7 +25,7 @@ import java.net.Socket;
  * -Registration(che gestisce la registrazione dell'utente)<br>
  * -LogIn(tramite login o accesso libero)<br>
  * <br>
- * Nello specifico � la classe Cliente_Sender che si occupa del reindirizzamento<br>
+ * Nello specifico e' la classe Cliente_Sender che si occupa del reindirizzamento<br>
  * All'avvio dell'applicazione viene effettuato un tentativo di connessione al server tramite socket<br>
  * se esso non � stato lanciato in precedenza l'app tenta di accedere al file jar del server_DB<br>
  * il quale per� deve essere nello stesso path del progetto/app Eat_Advisor_Client ovvero nella cartella Eat_Advisor_DB<br>

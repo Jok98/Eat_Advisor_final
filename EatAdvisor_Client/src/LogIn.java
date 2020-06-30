@@ -141,7 +141,7 @@ public class LogIn {
 						return values[index];
 					}
 				});
-				list_result.setSelectedIndex(1);
+				list_result.setSelectedIndex(-1);
 				list_result.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 				list_result.setVisibleRowCount(15);
 				list_result.setToolTipText("");
@@ -236,6 +236,11 @@ public class LogIn {
 		btnBack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				info_restaurant.setText("");
+				tf_nome.setText("");
+				tf_tipologia.setText("");
+				comboBox.setModel(new DefaultComboBoxModel(new String[] {""}));
+				JList list_result = new JList();
 				window.frame_back_log();
 				frame.setVisible(false);
 				//contentPane.setVisible(false);
