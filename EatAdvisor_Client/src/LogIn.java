@@ -34,12 +34,12 @@ import javax.swing.JScrollPane;
  *La classe gestisce 4 funzioni : <br>
  *- Ricerca dei ristorante tramite nome | comune | tipologia | tipologia e comune<br>
  *- Mostra a schermo una lista dei risultati ottenuti dalla ricerca <br>
- *- Selezionando un nome del ristorante dalla lista � possibile cliccando il pulsante vedi di visualizzare<br>
+ *- Selezionando un nome del ristorante dalla lista e' possibile cliccando il pulsante vedi di visualizzare<br>
  *  a schermo le informazioni riguardanti quello specifico ristorante<br>
- *- se l'utente ha fatto l'accesso al frame LogIn tramite le credenziali allora avr� la possibilit�<br>
+ *- se l'utente ha fatto l'accesso al frame LogIn tramite le credenziali allora avra' la possibilita'<br>
  *  (dopo aver selezionato e visualizzato le informazioni del ristorante)<br>
- *  di inserire un commento/recensione del ristorante. tramite btnInvia tale commento verr� inviato al server<br>
- *  (passando da Client_sender) al Sever che poi lo inserir� nel DB;
+ *  di inserire un commento/recensione del ristorante. tramite btnInvia tale commento verra' inviato al server<br>
+ *  (passando da Client_sender) al Sever che poi lo inserira' nel DB;
  *<br>
  *I metodi : <br>
  *- create_tupla() crea la stringa da inviare al server necessaria per la ricerca del ristorante<br>

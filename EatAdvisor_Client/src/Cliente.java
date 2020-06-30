@@ -19,7 +19,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 /**
  * 
- * @author jokmoi<br>
+ * @author Matteo Moi<br>
  * <br>
  * La classe Cliente gestisce il reindirizzamento ai frame :<br>
  * -Registration(che gestisce la registrazione dell'utente)<br>
@@ -27,12 +27,12 @@ import java.net.Socket;
  * <br>
  * Nello specifico e' la classe Cliente_Sender che si occupa del reindirizzamento<br>
  * All'avvio dell'applicazione viene effettuato un tentativo di connessione al server tramite socket<br>
- * se esso non � stato lanciato in precedenza l'app tenta di accedere al file jar del server_DB<br>
- * il quale per� deve essere nello stesso path del progetto/app Eat_Advisor_Client ovvero nella cartella Eat_Advisor_DB<br>
+ * se esso non e' stato lanciato in precedenza l'app tenta di accedere al file jar del server_DB<br>
+ * il quale pero' deve essere nello stesso path del progetto/app Eat_Advisor_Client ovvero nella cartella Eat_Advisor_DB<br>
  * <br>
  * Per ogni azione fatta dall'utente la classe Cliente genera un nuovo processo Thread Cliente_Sender che gestisce la richiesta/azione specifica<br>
  * <br>
- * Sono presenti due metodi frame_back() che gestioscono la funzione "Back" quando l'utente � sul frame Registration o LogIn<br>
+ * Sono presenti due metodi frame_back() che gestioscono la funzione "Back" quando l'utente e' sul frame Registration o LogIn<br>
  */
 public class Cliente {
 

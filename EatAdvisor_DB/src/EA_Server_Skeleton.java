@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author jokmoi
  *
  *La classe implementa l'interfaccia Server_Client_Int e estende UnicastRemoteObject</br>
- *cos� da permettere l'utilizzo remoto del metodo get_restaurant() che ritorna una lista dei ristoranti(nome+tutti gli altri attributi)</br>
+ *cosi' da permettere l'utilizzo remoto del metodo get_restaurant() che ritorna una lista dei ristoranti(nome+tutti gli altri attributi)</br>
  *dopo che viene effettuata una ricerca sul DB con i dati inviati dal client</br>
  *
  */

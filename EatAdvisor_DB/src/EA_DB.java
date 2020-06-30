@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * - restourant_registration(String[] data) : inserisce i dati del ristorante nella tabella Restaurant</br>
  * - check_data_login(String[] data) : verifica che i dati inseriti dall'utente oer il logIn corrispondano a quelli presenti nel DB</br>
  * - insert_comment(String[] comment) : inserisce all'interno della tabella Restaurant la recensione dell'utente riguardante uno specifico ristorante</br>
- * - search_restaurant(String[] query) : dai dati inviati dall'utente il metodo ricerca uno o pi� ristoranti aventi uguali dati(nome,comune,tipologia)</br>
+ * - search_restaurant(String[] query) : dai dati inviati dall'utente il metodo ricerca uno o piu' ristoranti aventi uguali dati(nome,comune,tipologia)</br>
  * - show_table(String query) : mostra su console le due tabelle(Cliente e Restaurant) per avere un feedback al programmatore sul attuale stato e contenuto del DB</br>
  */
 public class EA_DB {

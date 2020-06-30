@@ -1,6 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -8,27 +8,39 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.IOException;
+import java.net.ConnectException;
+import java.net.InetAddress;
+import java.net.Socket;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import java.awt.Font;
+import java.awt.Frame;
 import javax.swing.JComboBox;
 
 /**
  * 
  * @author jokmoi
  * La clesse permette tramite GUI all'utente di inserire i dati necessari per iscrivere/inserire nel db il ristorante<br>
- * con la conferma dell'invio dei dati la classe crea un stringa contenente tutti i dati e che tramite Restaurant_Sender verr� inviata al server e poi al db per l'iscrizione<br>
+ * All'avvio dell'applicazione viene effettuato un tentativo di connessione al server tramite socket<br>
+ * se esso non e' stato lanciato in precedenza l'app tenta di accedere al file jar del server_DB<br>
+ * il quale pero' deve essere nello stesso path del progetto/app Eat_Advisor_Client ovvero nella cartella Eat_Advisor_DB<br>
+ * con la conferma dell'invio dei dati la classe crea un stringa contenente tutti i dati e che tramite Restaurant_Sender verra' inviata al server e poi al db per l'iscrizione<br>
+ * 
  */
-public class Restaurant_Registration extends JFrame {
+public class Ristorante extends JFrame {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	static Restaurant_Registration frame = new Restaurant_Registration();
-	static Restaurant window = new Restaurant();
+	static Ristorante frame = new Ristorante();
 	static JComboBox comboBox;
-	
+	private static InetAddress addr = null;
+	private static Socket socket;
+	static Restaurant_Sender r_sender;
+	static Frame message = new Frame();
 	private JPanel contentPane;
 	private JTextField tf_nome;
 	private JTextField tf_indirizzo;
@@ -43,7 +55,7 @@ public class Restaurant_Registration extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frame.setVisible(false);
+					frame.setVisible(true);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,13 +63,38 @@ public class Restaurant_Registration extends JFrame {
 			}
 		});
 		
+		
+			//System.exit(1);
+		 
+		try {
+			addr = InetAddress.getByName(null);
+			socket = new Socket(addr, 8080);
+		}catch(IOException  e) {
+			JOptionPane.showMessageDialog(message,"Connessione al server fallita! \r\n Avvio del server tramite app.");
+			//System.exit(1);
+			try {
+				File file = new File("EA_DB_Server.jar");
+				String tmp_path = file.getAbsolutePath();
+				String path = tmp_path.replaceAll("EatAdvisor_Restaurant", "EatAdvisor_DB");
+				System.out.println(path);
+				Desktop.getDesktop().open(new File(path));
+				socket = new Socket(addr, 8080);
+				JOptionPane.showMessageDialog(message,"Database avviato");
+			}catch(IllegalArgumentException | IOException z) {
+				JOptionPane.showMessageDialog(message,"Il database EA_DB_Server.jar deve essere presente"
+						+ "\r\n nel progetto/cartella EatAdvisor_Restaurant");
+				System.exit(1);
+			}
+			
+		}
+		
 	}
 
 	/**
 	 * Create the frame.
 	 */
 	@SuppressWarnings("unchecked")
-	public Restaurant_Registration() {
+	public Ristorante() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -65,19 +102,22 @@ public class Restaurant_Registration extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		//inizio btn back
-		JButton btnBack = new JButton("Back");
-		btnBack.addMouseListener(new MouseAdapter() {
+		//inizio btn canc
+		JButton btnDelete = new JButton("Cancella dati");
+		btnDelete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				window.frame_back();
-				
+				tf_nome.setText("");
+				tf_tipologia.setText("");
+				tf_indirizzo.setText("");
+				tf_cell.setText("");
+				tf_sito.setText("");
+
 			}
 		});
-		btnBack.setBounds(335, 227, 89, 23);
-		contentPane.add(btnBack);
-		//fine btn back
+		btnDelete.setBounds(335, 227, 89, 23);
+		contentPane.add(btnDelete);
+		//fine btn canc
 		
 		JButton btnConferma = new JButton("Conferma");
 		btnConferma.addMouseListener(new MouseAdapter() {
@@ -85,12 +125,15 @@ public class Restaurant_Registration extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				
 				try {
+					addr = InetAddress.getByName(null);
+					socket = new Socket(addr, 8080);
+					r_sender = new Restaurant_Sender(socket);
 					String tupla = create_tupla();
 					//System.out.println(tupla);
-					window.r_sender.send_data(tupla);
+					r_sender.send_data(tupla);
 					
 				} catch (IOException e1) {
-				
+					JOptionPane.showMessageDialog(message,"Connessione al server fallita! \r\n Avvio del server tramite app.");
 					e1.printStackTrace();
 				}
 				

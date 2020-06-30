@@ -106,7 +106,7 @@ public class EA_Single_Server extends Thread{
 			
 		} catch (IOException | SQLException | NullPointerException e) {
 			
-			System.out.println("errore connessione socket");
+			System.out.println("Applicazione client disconnessa");
 		}
 
 	}

@@ -15,21 +15,20 @@ public class Restaurant_Sender {
 	  static Socket socket;
 	  private BufferedReader in;
 	  private PrintWriter out;
-	  static Restaurant r;
-	  static Restaurant_Registration reg;
+
 	
-	public Restaurant_Sender(Restaurant r, Restaurant_Registration reg ,Socket socket) throws IOException {
-		this.reg = reg;
-		this.r = r;
+	public Restaurant_Sender(Socket socket) throws IOException {
+		
 		this.socket = socket;
 		this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 	    this.out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
 	    out.println("Restaurant");
 	}
 	
+
 	/**
 	 * il metodo invia i dati ottenuti al server
-	 * @param tupla � una stringa contenente i dati inseriti dall'utente nella gui per l'iscrizione
+	 * @param tupla e' una stringa contenente i dati inseriti dall'utente nella gui per l'iscrizione
 	 * @throws IOException
 	 */
 	public void send_data(String tupla) throws IOException {
