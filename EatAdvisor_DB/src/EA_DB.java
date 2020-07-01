@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
 public class EA_DB {
 	
 	public static final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-	public static final String jbdc_url = "jdbc:derby:DB_EM;create=true";
+	public static  String jbdc_url ;
 	static ArrayList<String> restaurant_list;
 	static Connection conn ;
 	static String commento="";
@@ -47,6 +47,7 @@ public class EA_DB {
 	 * @throws SQLException
 	 */
 	public static void db_start_conn() throws SQLException {
+		jbdc_url = "jdbc:derby:C:\\Users\\jokmo\\git\\Eat_Advisor\\EatAdvisor_DB\\DB_EM;create=true";
 		if ((conn==null)) {
 	    	conn = DriverManager.getConnection(jbdc_url);
 			System.out.println("Connessione al database aperta !");
