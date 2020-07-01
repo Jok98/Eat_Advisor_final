@@ -178,7 +178,7 @@ public class LogIn {
 		btnCerca.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//for(int j = 0; j < 3; j++) {
+				
 				try {
 					InetAddress addr = InetAddress.getByName(null);
 					Socket socket = new Socket(addr, 8080);
@@ -207,7 +207,6 @@ public class LogIn {
 					e1.printStackTrace();
 				}
 				
-				//}
 				
 				System.out.println("Ricevuto dati tramite RMI ");
 				System.out.println("Size lista : " + restaurant_name.size());
@@ -311,7 +310,6 @@ public class LogIn {
 				+"\r\n"+"Tipologia : " + restaurant_name.get(name_index+2)+"\r\n"+"Cell : " + restaurant_name.get(name_index+4)
 				+"\r\n"+"Sito web : " + restaurant_name.get(name_index+5)+"\r\n"+"Commento : " + restaurant_name.get(name_index+6));
 				
-				;
 			}
 		});
 		btnVedi.setBounds(312, 159, 132, 23);

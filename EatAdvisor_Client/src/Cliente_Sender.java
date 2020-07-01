@@ -89,13 +89,14 @@ public class Cliente_Sender extends Thread{
 				this.interrupt();
 				break;
 			
+			//gestione recensione
 			case "Client_comment":
 				comment = login.create_comment();
 				send_data(comment);
 				this.interrupt();
 				break;
 			
-			//gestione recensione
+			//gestione accesso senza login
 			case "Cliente_accesso_free":
 				login.frame.setVisible(true);
 				login.btnInvia.setEnabled(false);
