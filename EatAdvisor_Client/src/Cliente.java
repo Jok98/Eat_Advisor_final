@@ -49,6 +49,7 @@ public class Cliente {
 	static String id_tmp;
 	static Socket socket;
 	static Frame message = new Frame();
+	static int turn = 0;
 	private JPasswordField tf_password;
 	/**
 	 * 
@@ -78,7 +79,7 @@ public class Cliente {
 				String path = tmp_path.replaceAll("EatAdvisor_Client", "EatAdvisor_DB");
 				System.out.println(path);
 				Desktop.getDesktop().open(new File(path));
-				socket = new Socket(addr, 8080);
+				if (turn !=0){socket = new Socket(addr, 8080);}else turn++;
 				JOptionPane.showMessageDialog(message,"Database avviato");
 			}catch(IllegalArgumentException z) {
 				JOptionPane.showMessageDialog(message,"Il database EA_DB_Server.jar deve essere presente"

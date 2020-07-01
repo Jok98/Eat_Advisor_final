@@ -44,7 +44,7 @@ public class Ristorante extends JFrame {
 	private JTextField tf_cell;
 	private JTextField tf_tipologia;
 	private JTextField tf_sito;
-	
+	static int turn = 0;
 	/**
 	 * Launch the application.
 	 */
@@ -78,9 +78,9 @@ public class Ristorante extends JFrame {
 				socket = new Socket(addr, 8080);
 				JOptionPane.showMessageDialog(message,"Database avviato");
 			}catch(IllegalArgumentException | IOException z) {
-				JOptionPane.showMessageDialog(message,"Il database EA_DB_Server.jar deve essere presente"
+				if (turn !=0){JOptionPane.showMessageDialog(message,"Il database EA_DB_Server.jar deve essere presente"
 						+ "\r\n nel progetto/cartella EatAdvisor_Restaurant");
-				System.exit(1);
+				System.exit(1);}else turn++;
 			}
 			
 		}

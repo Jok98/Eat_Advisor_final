@@ -1,5 +1,7 @@
 
 import java.awt.Frame;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -45,9 +47,19 @@ public class EA_DB {
 	 * Il metodo apre una connessione ad un server embedded
 	 * creato tramite derby se la connessione risulta non esistente
 	 * @throws SQLException
+	 * @throws IOException 
 	 */
-	public static void db_start_conn() throws SQLException {
-		jbdc_url = "jdbc:derby:C:\\Users\\jokmo\\git\\Eat_Advisor\\EatAdvisor_DB\\DB_EM;create=true";
+	public static void db_start_conn() throws SQLException, IOException {
+		File file = new File("find_me.txt");
+		String tmp_path = file.getCanonicalPath();
+		//JOptionPane.showMessageDialog(message,tmp_path);
+		String path = tmp_path.replace("EatAdvisor_Client\\find_me.txt", "EatAdvisor_DB");
+		if(path.equals(tmp_path)) {path = tmp_path.replace("EatAdvisor_Restaurant\\find_me.txt", "EatAdvisor_DB");}
+		//JOptionPane.showMessageDialog(message,path);
+		String jbdc_url_tmp = "jdbc:derby:"+path+"/DB_EM;create=true";
+		//JOptionPane.showMessageDialog(message,jbdc_url_tmp);
+		//"jdbc:derby:C:\\Users\\jokmo\\git\\Eat_Advisor\\EatAdvisor_DB\\DB_EM;create=true";
+		jbdc_url = jbdc_url_tmp;
 		if ((conn==null)) {
 	    	conn = DriverManager.getConnection(jbdc_url);
 			System.out.println("Connessione al database aperta !");
