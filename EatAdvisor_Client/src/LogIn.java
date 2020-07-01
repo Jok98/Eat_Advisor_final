@@ -252,7 +252,6 @@ public class LogIn {
 				info_restaurant.setText("");
 				tf_nome.setText("");
 				tf_tipologia.setText("");
-				comboBox.setModel(new DefaultComboBoxModel(new String[] {""}));
 				JList list_result = new JList();
 				window.frame_back_log();
 				frame.setVisible(false);

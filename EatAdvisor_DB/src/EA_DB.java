@@ -203,7 +203,7 @@ public class EA_DB {
 			tipologia = rslt_set.getString("tipologia");
 
 		//ricerca per nome
-		if((nome.equals(query[0])&&(query_comune.equals("null"))&&(query_tipologia.equals("null")))){
+		if((nome.equals(query[0]))&&(query_comune.equals("null"))&&(query_tipologia.equals("null"))){
 			restaurant_list.add(nome);
 			restaurant_list.add(comune);
 			restaurant_list.add(tipologia);
@@ -219,7 +219,7 @@ public class EA_DB {
 		
 		}
 		//ricerca per comune
-		if((comune.equals(query[1])&&(query_nome.equals("null"))&&(query_tipologia.equals("null")))){
+		if((comune.equals(query[1]))&&(query_nome.equals("null"))&&(query_tipologia.equals("null"))){
 			restaurant_list.add(nome);
 			restaurant_list.add(comune);
 			restaurant_list.add(tipologia);
@@ -235,7 +235,7 @@ public class EA_DB {
 		
 		}
 		//ricerca per tipologia 
-		if((tipologia.equals(query[2])&&(query_comune.equals("null"))&&(query_nome.equals("null")))){
+		if((tipologia.equals(query[2]))&&(query_comune.equals("null"))&&(query_nome.equals("null"))){
 			restaurant_list.add(nome);
 			restaurant_list.add(comune);
 			restaurant_list.add(tipologia);
@@ -252,7 +252,7 @@ public class EA_DB {
 		
 		}
 		//ricerca per comune & tipologia 
-				if((comune.equals(query[1])&&(tipologia.equals(query[2])&&(continua==true)))){
+				if((comune.equals(query[1])&&(tipologia.equals(query[2]))&&(query_nome.equals("null"))&&(continua==true))){
 					restaurant_list.add(nome);
 					restaurant_list.add(comune);
 					restaurant_list.add(tipologia);
