@@ -75,7 +75,6 @@ public class LogIn {
 	static Server_Client_Int restaurant;
 	static Frame message = new Frame();
 	/**
-	 * Launch the application.
 	 * @throws RemoteException 
 	 * @throws NotBoundException 
 	 */
@@ -96,17 +95,18 @@ public class LogIn {
 	}
 
 	/**
-	 * Create the application.
+	 * Creazione app
 	 */
 	public LogIn() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Inizio frame
 	 */
 	@SuppressWarnings("unchecked")
 	private void initialize() {
+		//inizio gestione frame
 		frame = new JFrame();
 		frame.setResizable(false);
 
@@ -117,27 +117,36 @@ public class LogIn {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
+		//fine gestione frame
 		
+		//inizio lblNome
 		JLabel lblNome = new JLabel("Nome : ");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNome.setBounds(10, 24, 46, 14);
 		contentPane.add(lblNome);
+		//fine lblNome
 		
+		//inizio lblProvincia
 		JLabel lblProvincia = new JLabel("Provincia : ");
 		lblProvincia.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblProvincia.setBounds(10, 63, 75, 14);
 		contentPane.add(lblProvincia);
+		//fine lblProvincia
 		
+		//inizio lblTipologia
 		JLabel lblTipologia = new JLabel("Tipologia : ");
 		lblTipologia.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblTipologia.setBounds(10, 107, 75, 14);
 		contentPane.add(lblTipologia);
+		//fine lblTipologia
 		
+		//inizio tf_nome
 		tf_nome = new JTextField();
 		tf_nome.setBounds(95, 22, 121, 20);
 		contentPane.add(tf_nome);
 		tf_nome.setColumns(10);
-
+		//fine tf_nome
+		
 		//inizio jtext info_restaurant
 		JTextPane info_restaurant = new JTextPane();
 		info_restaurant.setEditable(false);
@@ -145,31 +154,24 @@ public class LogIn {
 		contentPane.add(info_restaurant);
 		//fine jtext info_restaurant
 		
-		//inzio lista
-				JList list_result = new JList();
-				list_result.setModel(new AbstractListModel() {
-					String[] values = new String[] {"Lista ristoranti"};
-					public int getSize() {
-						return values.length;
-					}
-					public Object getElementAt(int index) {
-						return values[index];
-					}
+		//inzio list_result
+		JList list_result = new JList();
+		list_result.setModel(new AbstractListModel() {
+			String[] values = new String[] {"Lista ristoranti"};
+			public int getSize() {return values.length;}
+			public Object getElementAt(int index) {return values[index];}
 				});
-				list_result.setSelectedIndex(-1);
-				list_result.setLayoutOrientation(JList.HORIZONTAL_WRAP);
-				list_result.setVisibleRowCount(15);
-				list_result.setToolTipText("");
-				list_result.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				
-				list_result.setBounds(285, 37, 180, 111);
-				contentPane.add(list_result);
-				
-				JScrollPane scroll = new JScrollPane (list_result);
-				scroll.setBounds(285, 37, 180, 111);
-				contentPane.add(scroll);
-				
-				//fine  lista
+		list_result.setSelectedIndex(-1);
+		list_result.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+		list_result.setVisibleRowCount(15);
+		list_result.setToolTipText("");
+		list_result.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);		
+		list_result.setBounds(285, 37, 180, 111);
+		contentPane.add(list_result);	
+		JScrollPane scroll = new JScrollPane (list_result);
+		scroll.setBounds(285, 37, 180, 111);
+		contentPane.add(scroll);	
+		//fine  list_result
 		
 				
 		//inizio btn cerca
@@ -177,42 +179,29 @@ public class LogIn {
 		btnCerca.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
 				//for(int j = 0; j < 3; j++) {
 				try {
-				
-					
 					InetAddress addr = InetAddress.getByName(null);
 					Socket socket = new Socket(addr, 8080);
 					tupla = create_tupla();
 					new  Cliente_Sender(socket,"Cliente_search");
 					registry = LocateRegistry.getRegistry(1099);
-					
 					restaurant =(Server_Client_Int) registry.lookup("Ristorante");
 					Thread.sleep(500);
 					restaurant_name = restaurant.get_restaurant();
-					
 					values = new String[restaurant_name.size() / 7];
 					int position;
 					for (int i = 0; i < restaurant_name.size() / 7; i++) {
 						position = i * 7;
 						values[i] = restaurant_name.get(position);
-						
 					}
 
-						list_result.setModel(new AbstractListModel() {
-
-							public int getSize() {
-								return values.length;
-							}
-
-							public Object getElementAt(int index) {
-								return values[index];
-							}
+					list_result.setModel(new AbstractListModel() {
+						public int getSize() {return values.length;}
+						public Object getElementAt(int index) {return values[index];}
 						});
-					
-						info_restaurant.setText("");
-						Thread.sleep(100);
+					info_restaurant.setText("");
+					Thread.sleep(100);
 					
 				} catch (IOException | InterruptedException | NotBoundException e1) {
 					System.err.println("Errore ricerca/comunicazione con db");
@@ -234,12 +223,14 @@ public class LogIn {
 		contentPane.add(btnCerca);
 		//fine btn cerca
 		
+		//inizio tf_tipologia
 		tf_tipologia = new JTextField();
 		tf_tipologia.setBounds(95, 105, 121, 20);
 		contentPane.add(tf_tipologia);
 		tf_tipologia.setColumns(10);
+		//fine tf_tipologia
 		
-		
+		//inizio comboBox
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"","Agrigento", "Alessandria", "Ancona", "Aosta", "Arezzo", "Ascoli Piceno", "Asti",
 				"Avellino", "Bari", "Barletta-Andria-Trani", "Belluno", "Benevento", "Bergamo", "Biella", "Bologna", "Bolzano", "Brescia", "Brindisi",
 				"Cagliari", "Caltanissetta", "Campobasso", "Carbonia-Iglesias", "Caserta", "Catania", "Catanzaro", "Chieti", "Como", "Cosenza", "Cremona",
@@ -253,6 +244,7 @@ public class LogIn {
 		comboBox.setToolTipText("");
 		comboBox.setBounds(95, 62, 121, 18);
 		contentPane.add(comboBox);
+		//fine comboBox
 		
 		//inizio btn back
 		JButton btnBack = new JButton("Back");
@@ -266,42 +258,47 @@ public class LogIn {
 				window.frame_back_log();
 				frame.setVisible(false);
 				//contentPane.setVisible(false);
-				
-				
-					
+	
 			}
 		});
 		btnBack.setBounds(0, 159, 89, 23);
 		contentPane.add(btnBack);
+		//fine btn back
 		
+		//inizio lblRisultatiRicerca
 		JLabel lblRisultatiRicerca = new JLabel("Risultati ricerca : ");
 		lblRisultatiRicerca.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblRisultatiRicerca.setBounds(292, 0, 132, 25);
 		contentPane.add(lblRisultatiRicerca);
+		//fine lblRisultatiRicerca
 		
 		
-		
-		
+		//inizio label
 		JLabel label = new JLabel("-----------------------------------------------------------------------");
 		label.setFont(new Font("Tahoma", Font.BOLD, 14));
 		label.setBounds(0, 193, 434, 14);
 		contentPane.add(label);
+		//fine label
 		
+		//inizio lblInfoRistorante
 		JLabel lblInfoRistorante = new JLabel("Info ristorante : ");
 		lblInfoRistorante.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblInfoRistorante.setBounds(44, 218, 115, 14);
 		contentPane.add(lblInfoRistorante);
+		//fine lblInfoRistorante
 		
+		//inizio tf_comment
 		tf_comment = new JTextField();
 		tf_comment.setBounds(285, 271, 180, 71);
 		contentPane.add(tf_comment);
 		tf_comment.setColumns(10);
-		
+		//fine tf_comment
 
-		
+		//inizio scroll_info
 		JScrollPane scroll_info = new JScrollPane (info_restaurant);
 		scroll_info.setBounds(44, 243, 206, 124);
 		contentPane.add(scroll_info);
+		//fine scroll_info
 		
 		//inizio btn vedi
 		JButton btnVedi = new JButton("Vedi");
@@ -322,45 +319,45 @@ public class LogIn {
 		contentPane.add(btnVedi);
 		//fine btn vedi
 		
+		//inizio lblRecensione
 		lblRecensione = new JLabel("Recensione :");
 		lblRecensione.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblRecensione.setBounds(285, 218, 122, 14);
 		contentPane.add(lblRecensione);
-		
+		//fine lblRecensione
 		
 		//inizio btnInvia
 		btnInvia = new JButton("Invia");
-		
 		btnInvia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String tmp = tf_comment.getText();
 				if(tmp.length()<257) {
-			
-				try {
-					InetAddress addr = InetAddress.getByName(null);
-					Socket socket = new Socket(addr, 8080);
-					new Cliente_Sender(socket, "Client_comment");
+					try {
+						InetAddress addr = InetAddress.getByName(null);
+						Socket socket = new Socket(addr, 8080);
+						new Cliente_Sender(socket, "Client_comment");
 					
-				} catch (IOException e) {
-				
-					e.printStackTrace();
-				}
+					} catch (IOException e) {e.printStackTrace();}
 			}else {JOptionPane.showMessageDialog(message,"Testo superiore ai 256 caratteri! \r\n Diminuirne la dimensione!");}
 			
 			}});
 		btnInvia.setBounds(285, 342, 180, 25);
 		contentPane.add(btnInvia);
+		//fine btnInvia
 		
+		//inizio cb_star
 		cb_star = new JComboBox();
 		cb_star.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		cb_star.setBounds(327, 238, 62, 22);
 		contentPane.add(cb_star);
+		//fine cb_star
 		
+		//inizio lblNewLabel
 		JLabel lblNewLabel = new JLabel("Stelle :");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(285, 243, 46, 14);
 		contentPane.add(lblNewLabel);
-		//fine invia
+		//fine lblNewLabel
 		
 	}
 	

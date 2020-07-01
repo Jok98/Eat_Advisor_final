@@ -1,5 +1,3 @@
-
-
 import java.awt.Frame;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
-
 import javax.swing.JOptionPane;
 /**
  *@author Matteo Moi 737574 Varese<br><br>
@@ -69,7 +66,6 @@ public class Cliente_Sender extends Thread{
 				//sleep(1000);
 				if(recive_data()==true) {
 					continua= true;
-					
 					login.frame.setVisible(true);
 					login.btnInvia.setEnabled(true);
 					login.tf_comment.setEnabled(true);
@@ -83,6 +79,7 @@ public class Cliente_Sender extends Thread{
 				}
 				this.interrupt();
 				break;
+				
 			case "Cliente_search":
 				tupla = login.tupla;
 				send_data(tupla);
@@ -93,7 +90,6 @@ public class Cliente_Sender extends Thread{
 			case "Client_comment":
 				comment = login.create_comment();
 				send_data(comment);
-				
 				this.interrupt();
 				break;
 				 

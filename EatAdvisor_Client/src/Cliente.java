@@ -1,14 +1,11 @@
-
 import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Frame;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -51,11 +48,7 @@ public class Cliente {
 	static Frame message = new Frame();
 	static int turn = 0;
 	private JPasswordField tf_password;
-	/**
-	 * 
-	 * Launch the application.
-	 * @throws IOException 
-	 */
+
 	public static void main(String[] args) throws IOException {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -90,14 +83,14 @@ public class Cliente {
 	}
 
 	/**
-	 * Create the application.
+	 * Creazione app
 	 */
 	public Cliente() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Inizio frame
 	 */
 	private void initialize() {
 		frame = new JFrame();
@@ -107,6 +100,7 @@ public class Cliente {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		//inizio btnAccedi
 		JButton btnAccedi = new JButton("Accedi");
 		btnAccedi.addMouseListener(new MouseAdapter() {
 			@Override
@@ -132,7 +126,9 @@ public class Cliente {
 		});
 		btnAccedi.setBounds(162, 227, 89, 23);
 		frame.getContentPane().add(btnAccedi);
+		//fine btnAccedi
 		
+		//inizio btnRegistrati
 		JButton btnRegistrati = new JButton("Registrati");
 		btnRegistrati.addMouseListener(new MouseAdapter() {
 			@Override
@@ -144,8 +140,9 @@ public class Cliente {
 		});
 		btnRegistrati.setBounds(34, 227, 89, 23);
 		frame.getContentPane().add(btnRegistrati);
+		//fine btnRegistrati
 		
-		//
+		//inizio btnNoLogIn
 		JButton btnNoLogIn = new JButton("Login non iscritti");
 		btnNoLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -165,35 +162,48 @@ public class Cliente {
 		});
 		btnNoLogIn.setBounds(283, 227, 141, 23);
 		frame.getContentPane().add(btnNoLogIn);
+		//fine btnNoLogIn
 		
+		//inizio tf_ID
 		tf_ID = new JTextField();
 		tf_ID.setBounds(190, 93, 86, 20);
 		frame.getContentPane().add(tf_ID);
 		tf_ID.setColumns(10);
+		//fine tf_ID
 		
+		//inizio lblID
 		JLabel lblID = new JLabel("ID : ");
 		lblID.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblID.setBounds(149, 96, 35, 14);
 		frame.getContentPane().add(lblID);
+		//fine lblID
 		
+		//inizio lblPassword
 		JLabel lblPassword = new JLabel("Password : ");
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPassword.setBounds(117, 147, 71, 14);
 		frame.getContentPane().add(lblPassword);
+		//fine lblPassword
 		
+		//inizio tf_password
 		tf_password = new JPasswordField();
 		tf_password.setBounds(190, 144, 86, 20);
 		frame.getContentPane().add(tf_password);
+		//fine tf_password
 		
+		//inizio lblNewLabel
 		JLabel lblNewLabel = new JLabel("Eat advisor");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNewLabel.setBounds(175, 11, 101, 14);
 		frame.getContentPane().add(lblNewLabel);
+		//fine lblNewLabel
 		
+		//inizio lblNewLabel_1
 		JLabel lblNewLabel_1 = new JLabel("Client Version");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		lblNewLabel_1.setBounds(175, 36, 89, 14);
 		frame.getContentPane().add(lblNewLabel_1);
+		//fine lblNewLabel_1
 	}
 	
 	public void frame_back_log() {
