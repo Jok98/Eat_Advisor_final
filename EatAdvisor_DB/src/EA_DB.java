@@ -1,4 +1,3 @@
-
 import java.awt.Frame;
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +9,6 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 /**
  * 
@@ -34,15 +32,6 @@ public class EA_DB {
 	static String commento="";
 	static Frame message = new Frame();
 	
-	public EA_DB(){
-
-	}
-	
-	public static void main(String[] Args) throws SQLException {
-		//db_start_conn();
-
-	}
-	
 	/**
 	 * Il metodo apre una connessione ad un server embedded
 	 * creato tramite derby se la connessione risulta non esistente
@@ -58,8 +47,6 @@ public class EA_DB {
 			}else{path = tmp_path.replace("EatAdvisor_DB\\find_me.txt", "EatAdvisor_DB");}
 		}
 		String jbdc_url_tmp = "jdbc:derby:"+path+"/DB_EM;create=true";
-	
-		//"jdbc:derby:C:\\Users\\jokmo\\git\\Eat_Advisor\\EatAdvisor_DB\\DB_EM;create=true";
 		jbdc_url = jbdc_url_tmp;
 		if ((conn==null)) {
 	    	conn = DriverManager.getConnection(jbdc_url);
@@ -149,7 +136,8 @@ public class EA_DB {
 			JOptionPane.showMessageDialog(message,"Ristorante registrato");
 			//conn.close();
 	}
-	//WHERE nickname = jok AND password = nos
+
+	
 	public String check_data_login(String[] data) throws SQLException {
 		
 		Statement stmt = conn.createStatement();
@@ -158,13 +146,13 @@ public class EA_DB {
 			String ID = (rslt_set.getString("nickname"));
 			String pass =(rslt_set.getString("password"));
 			
-		if((ID.equals(data[0]))&&(pass.equals(data[1]))){
-			System.out.print(ID+" |");
-			System.out.println(pass+" |");
-			System.out.println("Dati trovati login consentito");
-			//conn.close();
-			return "consentito";
-		}
+			if((ID.equals(data[0]))&&(pass.equals(data[1]))){
+				System.out.print(ID+" |");
+				System.out.println(pass+" |");
+				System.out.println("Dati trovati login consentito");
+				//conn.close();
+				return "consentito";
+			}
 		}
 		System.out.println("Dati login non trovati");
 		//conn.close();
@@ -179,24 +167,21 @@ public class EA_DB {
 		Statement stmt = conn.createStatement();
 		ResultSet rslt_set = stmt.executeQuery("SELECT * FROM Restaurant");
 		while(rslt_set.next()){
-		String tmp_name = rslt_set.getString("nome");
-		//String tmp_star = rslt_set.getString("nome");
-		if(nome.equals(tmp_name)) {commento = rslt_set.getString("commento")+"\r\n"+"-------"+"\r\n"+"Utente : "+comment[3]+"\r\n"+"stelle : "+comment[2]+" su 5"+"\r\n"+comment[1];}
+			String tmp_name = rslt_set.getString("nome");
+			if(nome.equals(tmp_name)) {commento = rslt_set.getString("commento")+"\r\n"+"-------"+"\r\n"+
+			"Utente : "+comment[3]+"\r\n"+"stelle : "+comment[2]+" su 5"+"\r\n"+comment[1];
+			}
 		}
-		//Statement statement = connection.createStatement();	 
-		//"UPDATE test_table SET test_col='new_test_value' WHERE test_col = 'test_value'");
+		
 		String value = "UPDATE Restaurant SET commento = ? WHERE nome = ?";
 		PreparedStatement p_stmt = conn.prepareStatement(value);
-		
-			p_stmt.setString(1, commento);
-			p_stmt.setString(2, nome);
-			p_stmt.executeUpdate();
-			JOptionPane.showMessageDialog(message,"Commento inserito");
-			System.out.println("Valori ristorante inseriti"+commento);
-		
-		
-		
+		p_stmt.setString(1, commento);
+		p_stmt.setString(2, nome);
+		p_stmt.executeUpdate();
+		JOptionPane.showMessageDialog(message,"Commento inserito");
+		System.out.println("Valori ristorante inseriti"+commento);
 	}
+	
 	
 	public void search_restaurant(String[] query) throws SQLException {
 		String query_nome = query[0];
@@ -205,12 +190,12 @@ public class EA_DB {
 		restaurant_list = new ArrayList<String>();
 		Statement stmt = conn.createStatement();
 		ResultSet rslt_set = stmt.executeQuery("SELECT * FROM Restaurant");
-		//ArrayList<String> restaurant = new ArrayList<String>();
+		
 		String nome = "null";
 		String provincia = "null";
 		String tipologia = "null";
 		Boolean continua = true;
-		//Boolean show = true;
+		
 		while(rslt_set.next()){
 			nome = rslt_set.getString("nome");
 			provincia = rslt_set.getString("provincia");
@@ -226,10 +211,7 @@ public class EA_DB {
 			restaurant_list.add(rslt_set.getString("sito"));
 			restaurant_list.add(rslt_set.getString("commento"));
 			//System.out.println("Dati ricerca nome trovati ");
-			//if(show==true)JOptionPane.showMessageDialog(message,"Dati ricerca per nome trovati");
-			//show=false;
-			//break;
-			//conn.close();
+		
 		
 		}
 		//ricerca per provincia
@@ -242,12 +224,8 @@ public class EA_DB {
 			restaurant_list.add(rslt_set.getString("sito"));
 			restaurant_list.add(rslt_set.getString("commento"));
 			//System.out.println("Dati ricerca provincia trovati ");
-			//if(show==true)JOptionPane.showMessageDialog(message,"Dati ricerca per provincia trovati");
-			//show=false;
-			//break;
-			//conn.close();
-		
 		}
+		
 		//ricerca per tipologia 
 		if((tipologia.equals(query[2]))&&(query_provincia.equals("null"))&&(query_nome.equals("null"))){
 			restaurant_list.add(nome);
@@ -258,38 +236,29 @@ public class EA_DB {
 			restaurant_list.add(rslt_set.getString("sito"));
 			restaurant_list.add(rslt_set.getString("commento"));
 			//System.out.println("Dati ricerca tipologia trovati ");
-			//if(show==false)JOptionPane.showMessageDialog(message,"Dati ricerca per tipologia trovati");
 			continua = false;
-			//show=false;
-			//break;
-			//conn.close();
-		
 		}
+		
 		//ricerca per provincia & tipologia 
-				if((provincia.equals(query[1])&&(tipologia.equals(query[2]))&&(query_nome.equals("null"))&&(continua==true))){
-					restaurant_list.add(nome);
-					restaurant_list.add(provincia);
-					restaurant_list.add(tipologia);
-					restaurant_list.add(rslt_set.getString("indirizzo"));
-					restaurant_list.add(rslt_set.getString("cell"));
-					restaurant_list.add(rslt_set.getString("sito"));
-					restaurant_list.add(rslt_set.getString("commento"));
-					//if(show==false)JOptionPane.showMessageDialog(message,"Dati ricerca per provincia e tipologia trovati");
-					//show=false;
-					System.out.println("Dati ricerca tipologia e provincia trovati ");
-					//break;
-					//conn.close();
-				
-				}
+		if((provincia.equals(query[1])&&(tipologia.equals(query[2]))&&(query_nome.equals("null"))&&(continua==true))){
+			restaurant_list.add(nome);
+			restaurant_list.add(provincia);
+			restaurant_list.add(tipologia);
+			restaurant_list.add(rslt_set.getString("indirizzo"));
+			restaurant_list.add(rslt_set.getString("cell"));
+			restaurant_list.add(rslt_set.getString("sito"));
+			restaurant_list.add(rslt_set.getString("commento"));
+			System.out.println("Dati ricerca tipologia e provincia trovati ");				
+		}
 	
 		}
-		//if(show==true)JOptionPane.showMessageDialog(message,"Dati ricerca non trovati nel database");
 
 	}
 	
 	
 	/**
-	 * metodo necessario per avere un feedback sui dati inseriti nel db
+	 * metodo necessario per avere un feedback sui dati inseriti nel db<br>
+	 * mostra su console te tabelle Cliente e Restaurant con i relativi dati
 	 * @throws SQLException
 	 */
 	public void show_table(String query) throws SQLException {
@@ -299,22 +268,21 @@ public class EA_DB {
 		int clmn_lnght = rslt_set_mtdt.getColumnCount();
 		for(int i = 1; i<=clmn_lnght;i++) {
 			System.out.format("%20s", rslt_set_mtdt.getColumnName(i)+" |");
-			
 		}
 		System.out.println("");
 		
-			while(rslt_set.next()){
-			System.out.print(rslt_set.getString(1)+" |");
-			System.out.print(rslt_set.getString(2)+" |");
-			System.out.print(rslt_set.getString(3)+" |");
-			System.out.print(rslt_set.getString(4)+ " |");
-			System.out.print(rslt_set.getString(5)+" |");
-			System.out.print(rslt_set.getString(6)+" |");
-			System.out.println(rslt_set.getString(7)+" |");
-			System.out.println("--------------------------------------------------------------");
+		while(rslt_set.next()){
+		System.out.print(rslt_set.getString(1)+" |");
+		System.out.print(rslt_set.getString(2)+" |");
+		System.out.print(rslt_set.getString(3)+" |");
+		System.out.print(rslt_set.getString(4)+ " |");
+		System.out.print(rslt_set.getString(5)+" |");
+		System.out.print(rslt_set.getString(6)+" |");
+		System.out.println(rslt_set.getString(7)+" |");
+		System.out.println("--------------------------------------------------------------");
 	
-			}
-			//conn.close();
+		}
+			
 	}
 	
 }

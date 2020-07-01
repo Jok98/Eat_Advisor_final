@@ -1,4 +1,3 @@
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -11,21 +10,15 @@ import java.util.ArrayList;
  *
  */
 public class EA_Server_Skeleton extends UnicastRemoteObject implements Server_Client_Int  {
-	
 	private static final long serialVersionUID = 1L;
-
-	protected EA_Server_Skeleton() throws RemoteException {
-		super();
-		
-	}
-	
 	static EA_DB db = new EA_DB();
+	
+	protected EA_Server_Skeleton() throws RemoteException {super();}
 
+	@SuppressWarnings("static-access")
 	@Override
-	public ArrayList<String> get_restaurant() throws RemoteException {
-		
-		return EA_DB.restaurant_list;
-	}
+	//in caso di errore cambiare db in EA_DB
+	public ArrayList<String> get_restaurant() throws RemoteException {return db.restaurant_list;}
 	
 	
 }

@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.net.*;
 import java.rmi.RemoteException;
@@ -16,11 +15,14 @@ public class EA_Master_Server {
 	static Registry registry; 
 	private static EA_DB db = new EA_DB();
 	
+	@SuppressWarnings("static-access")
 	public static void main(String[] Args) throws IOException, SQLException {
 		db.db_start_conn();
 		db.new_table("CREATE TABLE Cliente(nome VARCHAR(20),  cognome VARCHAR(20),  comune_residenza VARCHAR(30), "
 				+ "sigla_provincia_residenza VARCHAR(30), email VARCHAR(40), nickname VARCHAR(15), password VARCHAR(30) )");
-		db.new_table("CREATE TABLE Restaurant(nome VARCHAR(20), provincia VARCHAR(30), tipologia VARCHAR(20), indirizzo VARCHAR(30), cell VARCHAR(10), sito VARCHAR(40), commento VARCHAR(7000) )");
+		
+		db.new_table("CREATE TABLE Restaurant(nome VARCHAR(20), provincia VARCHAR(30), tipologia VARCHAR(20), "
+				+ "indirizzo VARCHAR(30), cell VARCHAR(10), sito VARCHAR(40), commento VARCHAR(7000) )");
 		
 		create_registry();
 		create_single_server();
@@ -39,10 +41,7 @@ public class EA_Master_Server {
 		        socket.close();
 		      }
 		    }
-		    } finally {
-		      server.close();
-		    }
-		
+		} finally {server.close();}
 	}
 	
 	public static void create_registry() throws RemoteException {

@@ -48,6 +48,7 @@ public class EA_Single_Server extends Thread{
 			db.show_table("SELECT * FROM Restaurant");
 			db.show_table("SELECT * FROM Cliente");
 			switch(recognize_client()) {
+			//gestione iscrizione cliente
 			case "Cliente":
 				tupla = new String[7];
 				tupla = client_data();
@@ -58,8 +59,9 @@ public class EA_Single_Server extends Thread{
 				System.out.println();
 				db.show_table("SELECT * FROM Cliente");
 				break;
-			case "Restaurant":
 				
+			//gestione iscrizione ristorante
+			case "Restaurant":
 				tupla = new String[6];
 				tupla = client_data();
 				db.restourant_registration(tupla);
@@ -69,7 +71,8 @@ public class EA_Single_Server extends Thread{
 				System.out.println();
 				db.show_table("SELECT * FROM Cliente");
 				break;
-				
+			
+			//gestione accesso utente
 			case "Cliente_accesso":
 				tupla = new String[2];
 				tupla = client_data();
@@ -81,7 +84,8 @@ public class EA_Single_Server extends Thread{
 				System.out.println();
 				db.show_table("SELECT * FROM Cliente");
 				break;
-				
+			
+			//gestione ricerca ristorante
 			case "Cliente_search":
 				tupla = new String[3];
 				String[] query = client_data();
@@ -89,6 +93,7 @@ public class EA_Single_Server extends Thread{
 				db.search_restaurant(query);
 				break;
 			
+			//gestione recensione	
 			case "Client_comment":
 				tupla = new String[4];
 				String[] commento = client_data();
@@ -118,13 +123,8 @@ public class EA_Single_Server extends Thread{
 	 * @throws IOException
 	 */
 	public String recognize_client() throws IOException {
-		try {
-		client = in.readLine();
-		}catch(SocketException e) {
-			
-			System.out.println("errore connessione socket");
-		}
-		
+		try {client = in.readLine();
+		}catch(SocketException e) {System.out.println("errore connessione socket");}
 		return client;
 	}
 	

@@ -30,7 +30,6 @@ import java.awt.SystemColor;
  * 
  */
 public class Ristorante extends JFrame {
-
 	private static final long serialVersionUID = 1L;
 	static Ristorante frame = new Ristorante();
 	static JComboBox comboBox;
@@ -45,9 +44,7 @@ public class Ristorante extends JFrame {
 	private JTextField tf_tipologia;
 	private JTextField tf_sito;
 	static int turn = 0;
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -59,10 +56,7 @@ public class Ristorante extends JFrame {
 				}
 			}
 		});
-		
-		
-			//System.exit(1);
-		 
+
 		try {
 			addr = InetAddress.getByName(null);
 			socket = new Socket(addr, 8080);
@@ -78,10 +72,9 @@ public class Ristorante extends JFrame {
 				if (turn !=0){socket = new Socket(addr, 8080);}else turn++;
 				JOptionPane.showMessageDialog(message,"Database avviato");
 			}catch(IllegalArgumentException | IOException z) {
-				//if (turn !=0){
 				JOptionPane.showMessageDialog(message,"Il database EA_DB_Server.jar deve essere presente"
 						+ "\r\n nel progetto/cartella EatAdvisor_Restaurant");
-				System.exit(1);//}else turn++;
+				System.exit(1);
 			}
 			
 		}
@@ -102,7 +95,7 @@ public class Ristorante extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		//inizio btn canc
+		//inizio btnDelete
 		JButton btnDelete = new JButton("Cancella dati");
 		btnDelete.addMouseListener(new MouseAdapter() {
 			@Override
@@ -117,8 +110,9 @@ public class Ristorante extends JFrame {
 		});
 		btnDelete.setBounds(313, 227, 111, 23);
 		contentPane.add(btnDelete);
-		//fine btn canc
+		//fine btnDelete
 		
+		//inizio btnConferma
 		JButton btnConferma = new JButton("Conferma");
 		btnConferma.addMouseListener(new MouseAdapter() {
 			@Override
@@ -141,62 +135,86 @@ public class Ristorante extends JFrame {
 		});
 		btnConferma.setBounds(148, 213, 111, 37);
 		contentPane.add(btnConferma);
+		//fine btnConferma
 		
+		//inizio tf_nome
 		tf_nome = new JTextField();
 		tf_nome.setBounds(109, 58, 86, 20);
 		contentPane.add(tf_nome);
 		tf_nome.setColumns(10);
+		//fine tf_nome
 		
+		//inizio tf_indirizzo
 		tf_indirizzo = new JTextField();
 		tf_indirizzo.setBounds(328, 99, 86, 20);
 		contentPane.add(tf_indirizzo);
 		tf_indirizzo.setColumns(10);
+		//fine tf_indirizzo
 		
+		//inizio tf_cell
 		tf_cell = new JTextField();
 		tf_cell.setBounds(328, 58, 86, 20);
 		contentPane.add(tf_cell);
 		tf_cell.setColumns(10);
+		//fine tf_cell
 		
+		//inizio tf_tipologia
 		tf_tipologia = new JTextField();
 		tf_tipologia.setBounds(328, 144, 86, 20);
 		contentPane.add(tf_tipologia);
 		tf_tipologia.setColumns(10);
+		//fine tf_tipologia
 		
+		//inizio lblcell
 		JLabel lblcell = new JLabel("Cell : ");
 		lblcell.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblcell.setBounds(273, 58, 68, 17);
 		contentPane.add(lblcell);
+		//fine lblcell
 		
+		//inizio lblsito
 		JLabel lblsito = new JLabel("Sito web : ");
 		lblsito.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblsito.setBounds(25, 145, 89, 19);
 		contentPane.add(lblsito);
+		//fine lblsito
 		
+		//inizio tf_sito
 		tf_sito = new JTextField();
 		tf_sito.setBounds(109, 144, 86, 20);
 		contentPane.add(tf_sito);
 		tf_sito.setColumns(10);
+		//fine tf_sito
 		
+		//inizio lblNome
 		JLabel lblNome = new JLabel("Nome : ");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNome.setBounds(25, 57, 56, 19);
 		contentPane.add(lblNome);
+		//fine
 		
+		//inizio lblIndirizzo
 		JLabel lblIndirizzo = new JLabel("Indirizzo : ");
 		lblIndirizzo.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblIndirizzo.setBounds(244, 98, 89, 19);
 		contentPane.add(lblIndirizzo);
+		//fine
 		
+		//inizio lblTipologia
 		JLabel lblTipologia = new JLabel("Tipologia : ");
 		lblTipologia.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTipologia.setBounds(244, 143, 80, 19);
 		contentPane.add(lblTipologia);
+		//fine
 		
+		//inizio lblComune
 		JLabel lblComune = new JLabel("Provincia :");
 		lblComune.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblComune.setBounds(25, 102, 74, 14);
 		contentPane.add(lblComune);
+		//fine
 		
+		//inizio comboBox
 		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"","Agrigento", "Alessandria", "Ancona", "Aosta", "Arezzo", "Ascoli Piceno", "Asti",
 				"Avellino", "Bari", "Barletta-Andria-Trani", "Belluno", "Benevento", "Bergamo", "Biella", "Bologna", "Bolzano", "Brescia", "Brindisi",
@@ -211,18 +229,23 @@ public class Ristorante extends JFrame {
 		comboBox.setToolTipText("");
 		comboBox.setBounds(109, 98, 86, 22);
 		contentPane.add(comboBox);
+		//fine comboBox
 		
+		//inizio lblNewLabel
 		JLabel lblNewLabel = new JLabel("Eat advisor");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNewLabel.setBounds(171, 8, 101, 14);
 		contentPane.add(lblNewLabel);
+		//fine
 		
+		//inizio lblNewLabel
 		JLabel lblNewLabel_1 = new JLabel("Restaurant Version");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		lblNewLabel_1.setBounds(158, 33, 124, 14);
 		contentPane.add(lblNewLabel_1);
-		
+		//fine
 	}
+	
 	/**
 	 * vengono concatenati in un unica stringa tutti i dati inseriti dall'utente 
 	 * che verranno poi trasferiti al server
