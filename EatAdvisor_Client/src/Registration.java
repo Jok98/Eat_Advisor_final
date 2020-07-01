@@ -87,6 +87,7 @@ public class Registration extends JFrame {
 		contentPane.add(btnBack);
 		//fine btn back
 		
+		//inizio btnConferma
 		JButton btnConferma = new JButton("Conferma");
 		btnConferma.addMouseListener(new MouseAdapter() {
 			@Override
@@ -109,81 +110,112 @@ public class Registration extends JFrame {
 		});
 		btnConferma.setBounds(148, 213, 111, 37);
 		contentPane.add(btnConferma);
+		//fine btnConferma
 		
+		//inizio tf_nome
 		tf_nome = new JTextField();
 		tf_nome.setBounds(65, 39, 86, 20);
 		contentPane.add(tf_nome);
 		tf_nome.setColumns(10);
+		//fine 		tf_nome
 		
+		//inizio tf_cognome
 		tf_cognome = new JTextField();
 		tf_cognome.setBounds(268, 40, 86, 20);
 		contentPane.add(tf_cognome);
 		tf_cognome.setColumns(10);
+		//fine tf_cognome
 		
+		//inizio tf_email
 		tf_email = new JTextField();
 		tf_email.setBounds(65, 80, 86, 20);
 		contentPane.add(tf_email);
 		tf_email.setColumns(10);
+		//fine tf_email
 		
+		//inizio tf_comune_residenza
 		tf_comune_residenza = new JTextField();
 		tf_comune_residenza.setBounds(268, 145, 86, 20);
 		contentPane.add(tf_comune_residenza);
 		tf_comune_residenza.setColumns(10);
+		//fine tf_comune_residenza
 		
+		//inizio tf_sigla_provincia_residenza
 		tf_sigla_provincia_residenza = new JTextField();
 		tf_sigla_provincia_residenza.setBounds(268, 176, 86, 20);
 		contentPane.add(tf_sigla_provincia_residenza);
 		tf_sigla_provincia_residenza.setColumns(10);
+		//fine tf_sigla_provincia_residenza
 		
+		//inizio lblEmail
 		JLabel lblEmail = new JLabel("Email : ");
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblEmail.setBounds(10, 80, 68, 17);
 		contentPane.add(lblEmail);
+		//fine lblEmail
 		
+		//inizio lblNickname
 		JLabel lblNickname = new JLabel("Nickname : ");
 		lblNickname.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNickname.setBounds(184, 81, 89, 19);
 		contentPane.add(lblNickname);
+		//fine lblNickname
 		
+		//inizio tf_nickname
 		tf_nickname = new JTextField();
 		tf_nickname.setBounds(268, 80, 86, 20);
 		contentPane.add(tf_nickname);
 		tf_nickname.setColumns(10);
+		//fine tf_nickname
 		
+		//inizio lblPassword
 		JLabel lblPassword = new JLabel("Password : ");
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPassword.setBounds(184, 111, 89, 23);
 		contentPane.add(lblPassword);
+		//fine lblPassword
 		
+		//inizio tf_password
 		tf_password = new JTextField();
 		tf_password.setBounds(268, 114, 86, 20);
 		contentPane.add(tf_password);
 		tf_password.setColumns(10);
+		//fine tf_password
 		
+		//inizio lblNome
 		JLabel lblNome = new JLabel("Nome : ");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNome.setBounds(10, 38, 56, 19);
 		contentPane.add(lblNome);
+		//fine lblNome
 		
+		//inizio lblCognome
 		JLabel lblCognome = new JLabel("Cognome : ");
 		lblCognome.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCognome.setBounds(184, 39, 89, 19);
 		contentPane.add(lblCognome);
+		//fine lblCognome
 		
+		//inizio lblComuneDiResidenza
 		JLabel lblComuneDiResidenza = new JLabel("Comune di residenza : ");
 		lblComuneDiResidenza.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblComuneDiResidenza.setBounds(69, 146, 166, 14);
 		contentPane.add(lblComuneDiResidenza);
+		//fine lblComuneDiResidenza
 		
+		//inizio lblSiglaProvinciaDi
 		JLabel lblSiglaProvinciaDi = new JLabel("Sigla provincia di residenza : ");
 		lblSiglaProvinciaDi.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblSiglaProvinciaDi.setBounds(69, 174, 249, 20);
 		contentPane.add(lblSiglaProvinciaDi);
+		//fine lblSiglaProvinciaDi
 		
+		//inizio lblNewLabel
 		JLabel lblNewLabel = new JLabel("Registrazione utente");
 		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		lblNewLabel.setBounds(148, 11, 135, 17);
 		contentPane.add(lblNewLabel);
+		//fine lblNewLabel
 		
 	}
 	/**

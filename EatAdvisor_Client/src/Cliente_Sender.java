@@ -30,13 +30,13 @@ public class Cliente_Sender extends Thread{
 	  static Registration reg = new Registration();
 	  static Socket socket;
 	  static Boolean continue_ = false;
-	  private BufferedReader in;
-	  private PrintWriter out;
 	  static String reconizer;
 	  static String tupla;
 	  static String comment;
 	  static Frame message = new Frame();
 	  static Boolean continua =false;
+	  private BufferedReader in;
+	  private PrintWriter out;
 	  
 	  
 	public Cliente_Sender(Socket socket, String reconizer) throws IOException {
@@ -48,22 +48,23 @@ public class Cliente_Sender extends Thread{
 	    out.println(reconizer);
 	    out.flush();
 	    start();
-	    //out.close();
 	}
 	
 	public void run() {
 		try {
-			//System.out.print(tupla);
+			
 			switch(reconizer) {
+			//gestione iscrizione cliente
 			case "Cliente" :
 				tupla = reg.tupla;
 				send_data(tupla);
 				this.interrupt();
 				break;
+				
+			//gestione accesso utente
 			case "Cliente_accesso":
 				tupla = cliente.data;
 				send_data(tupla);
-				//sleep(1000);
 				if(recive_data()==true) {
 					continua= true;
 					login.frame.setVisible(true);
@@ -79,7 +80,8 @@ public class Cliente_Sender extends Thread{
 				}
 				this.interrupt();
 				break;
-				
+			
+			//gestione ricerca ristorante
 			case "Cliente_search":
 				tupla = login.tupla;
 				send_data(tupla);
@@ -92,7 +94,8 @@ public class Cliente_Sender extends Thread{
 				send_data(comment);
 				this.interrupt();
 				break;
-				 
+			
+			//gestione recensione
 			case "Cliente_accesso_free":
 				login.frame.setVisible(true);
 				login.btnInvia.setEnabled(false);
@@ -120,17 +123,17 @@ public class Cliente_Sender extends Thread{
 	 * @throws IOException
 	 */
 	public void send_data(String tupla) throws IOException {
-		
-		//System.out.println(socket);
-		//out.println("Cliente");
-		
 		out.println(tupla);
 		out.flush();
 		System.out.println("Cliente invia dati : "+tupla);
-		//out.close();
-		//socket.close();
+
 	}
 	
+	/**
+	 * il metodo riceve o meno il consenso da parte del server per permettere l'accesso all'utente al frame login
+	 * @param tupla e' una stringa contenente i dati inseriti dall'utente nella gui per l'iscrizione
+	 * @throws IOException
+	 */
 	public Boolean recive_data() throws IOException {
 		String access = in.readLine();
 		System.out.println(access);

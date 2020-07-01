@@ -1,4 +1,3 @@
-
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -365,14 +364,11 @@ public class LogIn {
 		String nome = (tf_nome.getText().equals("")) ? "null":tf_nome.getText();
 		String tmp = (String) comboBox.getSelectedItem();
 		String provincia = (comboBox.getSelectedItem().equals("")) ? "null":tmp;
-		
 		String tipologia = (tf_tipologia.getText().equals("")) ? "null":tf_tipologia.getText() ;
 		
 		String tupla = nome+" "+provincia+" "+tipologia;
-		
 		System.out.println("dal metodo : "+tupla);
 		return tupla;
-		
 	}
 	
 	public String create_comment() {
