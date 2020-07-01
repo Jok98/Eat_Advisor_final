@@ -324,7 +324,9 @@ public class LogIn {
 		
 		btnInvia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				String tmp = tf_comment.getText();
+				if(tmp.length()<257) {
+			
 				try {
 					InetAddress addr = InetAddress.getByName(null);
 					Socket socket = new Socket(addr, 8080);
@@ -334,8 +336,9 @@ public class LogIn {
 				
 					e.printStackTrace();
 				}
-			}
-		});
+			}else {JOptionPane.showMessageDialog(message,"Testo superiore ai 256 caratteri! \r\n Diminuirne la dimensione!");}
+			
+			}});
 		btnInvia.setBounds(285, 342, 180, 25);
 		contentPane.add(btnInvia);
 		
