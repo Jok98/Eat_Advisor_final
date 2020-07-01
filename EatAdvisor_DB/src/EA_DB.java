@@ -52,12 +52,13 @@ public class EA_DB {
 	public static void db_start_conn() throws SQLException, IOException {
 		File file = new File("find_me.txt");
 		String tmp_path = file.getCanonicalPath();
-		//JOptionPane.showMessageDialog(message,tmp_path);
 		String path = tmp_path.replace("EatAdvisor_Client\\find_me.txt", "EatAdvisor_DB");
 		if(path.equals(tmp_path)) {path = tmp_path.replace("EatAdvisor_Restaurant\\find_me.txt", "EatAdvisor_DB");}
-		//JOptionPane.showMessageDialog(message,path);
+		if(path.equals(file.getCanonicalPath())) {path = tmp_path.replace("EatAdvisor_DB\\find_me.txt", "EatAdvisor_DB");}
+		
+
 		String jbdc_url_tmp = "jdbc:derby:"+path+"/DB_EM;create=true";
-		//JOptionPane.showMessageDialog(message,jbdc_url_tmp);
+	
 		//"jdbc:derby:C:\\Users\\jokmo\\git\\Eat_Advisor\\EatAdvisor_DB\\DB_EM;create=true";
 		jbdc_url = jbdc_url_tmp;
 		if ((conn==null)) {
@@ -67,7 +68,7 @@ public class EA_DB {
 			System.out.println("Connessione al database gia' aperta !");
 		}	
 	}
-	
+
 	/**
 	 * il metodo viene chiamato 2 volte per creare le tabelle Cliente & Restaurant se esistono gia' viene segnalato su console
 	 * @param table_str e' una stringa contenete le istruzioni per creare le tabelle neccessarie
@@ -216,7 +217,7 @@ public class EA_DB {
 			tipologia = rslt_set.getString("tipologia");
 
 		//ricerca per nome
-		if((nome.equals(query[0]))&&(query_provincia.equals("null"))&&(query_tipologia.equals("null"))){
+		if((nome.contains(query[0]))&&(query_provincia.equals("null"))&&(query_tipologia.equals("null"))){
 			restaurant_list.add(nome);
 			restaurant_list.add(provincia);
 			restaurant_list.add(tipologia);

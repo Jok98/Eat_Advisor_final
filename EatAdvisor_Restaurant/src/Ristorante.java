@@ -75,12 +75,13 @@ public class Ristorante extends JFrame {
 				String path = tmp_path.replaceAll("EatAdvisor_Restaurant", "EatAdvisor_DB");
 				System.out.println(path);
 				Desktop.getDesktop().open(new File(path));
-				socket = new Socket(addr, 8080);
+				if (turn !=0){socket = new Socket(addr, 8080);}else turn++;
 				JOptionPane.showMessageDialog(message,"Database avviato");
 			}catch(IllegalArgumentException | IOException z) {
-				if (turn !=0){JOptionPane.showMessageDialog(message,"Il database EA_DB_Server.jar deve essere presente"
+				//if (turn !=0){
+				JOptionPane.showMessageDialog(message,"Il database EA_DB_Server.jar deve essere presente"
 						+ "\r\n nel progetto/cartella EatAdvisor_Restaurant");
-				System.exit(1);}else turn++;
+				System.exit(1);//}else turn++;
 			}
 			
 		}
