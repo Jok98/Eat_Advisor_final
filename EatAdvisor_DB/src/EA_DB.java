@@ -203,7 +203,7 @@ public class EA_DB {
 			tipologia = rslt_set.getString("tipologia");
 
 		//ricerca per nome
-		if(!(query_nome.equals("null"))&&(nome.equals(query[0])&&(query_comune.equals("null"))&&(query_tipologia.equals("null")))){
+		if((nome.equals(query[0])&&(query_comune.equals("null"))&&(query_tipologia.equals("null")))){
 			restaurant_list.add(nome);
 			restaurant_list.add(comune);
 			restaurant_list.add(tipologia);
@@ -219,7 +219,7 @@ public class EA_DB {
 		
 		}
 		//ricerca per comune
-		if(!(query_comune.equals("null"))&&(comune.equals(query[1])&&(query_nome.equals("null"))&&(query_tipologia.equals("null")))){
+		if((comune.equals(query[1])&&(query_nome.equals("null"))&&(query_tipologia.equals("null")))){
 			restaurant_list.add(nome);
 			restaurant_list.add(comune);
 			restaurant_list.add(tipologia);
@@ -235,7 +235,7 @@ public class EA_DB {
 		
 		}
 		//ricerca per tipologia 
-		if(!(query_tipologia .equals("null"))&&(tipologia.equals(query[2])&&(query_comune.equals("null"))&&(query_nome.equals("null")))){
+		if((tipologia.equals(query[2])&&(query_comune.equals("null"))&&(query_nome.equals("null")))){
 			restaurant_list.add(nome);
 			restaurant_list.add(comune);
 			restaurant_list.add(tipologia);
@@ -252,7 +252,7 @@ public class EA_DB {
 		
 		}
 		//ricerca per comune & tipologia 
-				if((continua==true)&&(!(query_tipologia .equals("null")))&&(tipologia.equals(query[2])&&(!(query_tipologia .equals("null")))&&(query_comune.equals(query[1]))&&(query_nome.equals("null")))){
+				if((comune.equals(query[1])&&(tipologia.equals(query[2])&&(continua==true)))){
 					restaurant_list.add(nome);
 					restaurant_list.add(comune);
 					restaurant_list.add(tipologia);
@@ -262,7 +262,7 @@ public class EA_DB {
 					restaurant_list.add(rslt_set.getString("commento"));
 					//if(show==false)JOptionPane.showMessageDialog(message,"Dati ricerca per comune e tipologia trovati");
 					//show=false;
-					//System.out.println("Dati ricerca tipologia trovati ");
+					System.out.println("Dati ricerca tipologia e comune trovati ");
 					//break;
 					//conn.close();
 				
