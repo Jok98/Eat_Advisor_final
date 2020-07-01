@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  * - restourant_registration(String[] data) : inserisce i dati del ristorante nella tabella Restaurant</br>
  * - check_data_login(String[] data) : verifica che i dati inseriti dall'utente oer il logIn corrispondano a quelli presenti nel DB</br>
  * - insert_comment(String[] comment) : inserisce all'interno della tabella Restaurant la recensione dell'utente riguardante uno specifico ristorante</br>
- * - search_restaurant(String[] query) : dai dati inviati dall'utente il metodo ricerca uno o piu' ristoranti aventi uguali dati(nome,comune,tipologia)</br>
+ * - search_restaurant(String[] query) : dai dati inviati dall'utente il metodo ricerca uno o piu' ristoranti aventi uguali dati(nome,provincia,tipologia)</br>
  * - show_table(String query) : mostra su console le due tabelle(Cliente e Restaurant) per avere un feedback al programmatore sul attuale stato e contenuto del DB</br>
  */
 public class EA_DB {
@@ -114,18 +114,18 @@ public class EA_DB {
 	public void restourant_registration(String[] data) throws SQLException {
 		Connection conn = DriverManager.getConnection(jbdc_url);
 		String nome = data[0];
-		String comune = data[1];
+		String provincia = data[1];
 		String tipologia = data[2];
 		String indirizzo = data[3];
 		String cell = data[4];
 		String sito = data[5];
 		
-		String value = "INSERT INTO Restaurant(nome, comune, tipologia, indirizzo, cell, sito, commento)"
+		String value = "INSERT INTO Restaurant(nome, provincia, tipologia, indirizzo, cell, sito, commento)"
 				+ "VALUES" +"(?,?,?,?,?,?,?)";
 		PreparedStatement p_stmt = conn.prepareStatement(value);
 		
 			p_stmt.setString(1, nome);
-			p_stmt.setString(2, comune);
+			p_stmt.setString(2, provincia);
 			p_stmt.setString(3, tipologia);
 			p_stmt.setString(4, indirizzo);
 			p_stmt.setString(5, cell);
@@ -187,26 +187,26 @@ public class EA_DB {
 	
 	public void search_restaurant(String[] query) throws SQLException {
 		String query_nome = query[0];
-		String query_comune = query[1];
+		String query_provincia = query[1];
 		String query_tipologia = query[2];
 		restaurant_list = new ArrayList<String>();
 		Statement stmt = conn.createStatement();
 		ResultSet rslt_set = stmt.executeQuery("SELECT * FROM Restaurant");
 		//ArrayList<String> restaurant = new ArrayList<String>();
 		String nome = "null";
-		String comune = "null";
+		String provincia = "null";
 		String tipologia = "null";
 		Boolean continua = true;
 		//Boolean show = true;
 		while(rslt_set.next()){
 			nome = rslt_set.getString("nome");
-			comune = rslt_set.getString("comune");
+			provincia = rslt_set.getString("provincia");
 			tipologia = rslt_set.getString("tipologia");
 
 		//ricerca per nome
-		if((nome.equals(query[0]))&&(query_comune.equals("null"))&&(query_tipologia.equals("null"))){
+		if((nome.equals(query[0]))&&(query_provincia.equals("null"))&&(query_tipologia.equals("null"))){
 			restaurant_list.add(nome);
-			restaurant_list.add(comune);
+			restaurant_list.add(provincia);
 			restaurant_list.add(tipologia);
 			restaurant_list.add(rslt_set.getString("indirizzo"));
 			restaurant_list.add(rslt_set.getString("cell"));
@@ -219,26 +219,26 @@ public class EA_DB {
 			//conn.close();
 		
 		}
-		//ricerca per comune
-		if((comune.equals(query[1]))&&(query_nome.equals("null"))&&(query_tipologia.equals("null"))){
+		//ricerca per provincia
+		if((provincia.equals(query[1]))&&(query_nome.equals("null"))&&(query_tipologia.equals("null"))){
 			restaurant_list.add(nome);
-			restaurant_list.add(comune);
+			restaurant_list.add(provincia);
 			restaurant_list.add(tipologia);
 			restaurant_list.add(rslt_set.getString("indirizzo"));
 			restaurant_list.add(rslt_set.getString("cell"));
 			restaurant_list.add(rslt_set.getString("sito"));
 			restaurant_list.add(rslt_set.getString("commento"));
-			//System.out.println("Dati ricerca comune trovati ");
-			//if(show==true)JOptionPane.showMessageDialog(message,"Dati ricerca per comune trovati");
+			//System.out.println("Dati ricerca provincia trovati ");
+			//if(show==true)JOptionPane.showMessageDialog(message,"Dati ricerca per provincia trovati");
 			//show=false;
 			//break;
 			//conn.close();
 		
 		}
 		//ricerca per tipologia 
-		if((tipologia.equals(query[2]))&&(query_comune.equals("null"))&&(query_nome.equals("null"))){
+		if((tipologia.equals(query[2]))&&(query_provincia.equals("null"))&&(query_nome.equals("null"))){
 			restaurant_list.add(nome);
-			restaurant_list.add(comune);
+			restaurant_list.add(provincia);
 			restaurant_list.add(tipologia);
 			restaurant_list.add(rslt_set.getString("indirizzo"));
 			restaurant_list.add(rslt_set.getString("cell"));
@@ -252,18 +252,18 @@ public class EA_DB {
 			//conn.close();
 		
 		}
-		//ricerca per comune & tipologia 
-				if((comune.equals(query[1])&&(tipologia.equals(query[2]))&&(query_nome.equals("null"))&&(continua==true))){
+		//ricerca per provincia & tipologia 
+				if((provincia.equals(query[1])&&(tipologia.equals(query[2]))&&(query_nome.equals("null"))&&(continua==true))){
 					restaurant_list.add(nome);
-					restaurant_list.add(comune);
+					restaurant_list.add(provincia);
 					restaurant_list.add(tipologia);
 					restaurant_list.add(rslt_set.getString("indirizzo"));
 					restaurant_list.add(rslt_set.getString("cell"));
 					restaurant_list.add(rslt_set.getString("sito"));
 					restaurant_list.add(rslt_set.getString("commento"));
-					//if(show==false)JOptionPane.showMessageDialog(message,"Dati ricerca per comune e tipologia trovati");
+					//if(show==false)JOptionPane.showMessageDialog(message,"Dati ricerca per provincia e tipologia trovati");
 					//show=false;
-					System.out.println("Dati ricerca tipologia e comune trovati ");
+					System.out.println("Dati ricerca tipologia e provincia trovati ");
 					//break;
 					//conn.close();
 				

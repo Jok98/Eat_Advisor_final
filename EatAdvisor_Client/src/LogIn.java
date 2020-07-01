@@ -33,7 +33,7 @@ import java.awt.SystemColor;
  * @author Matteo Moi 737574 Varese<br><br>
  * <br>
  *La classe gestisce 4 funzioni : <br>
- *- Ricerca dei ristorante tramite nome | comune | tipologia | tipologia e comune<br>
+ *- Ricerca dei ristorante tramite nome | provincia | tipologia | tipologia e provincia<br>
  *- Mostra a schermo una lista dei risultati ottenuti dalla ricerca <br>
  *- Selezionando un nome del ristorante dalla lista e' possibile cliccando il pulsante vedi di visualizzare<br>
  *  a schermo le informazioni riguardanti quello specifico ristorante<br>
@@ -300,7 +300,7 @@ public class LogIn {
 				name_index = list_result.getSelectedIndex();
 				if (name_index!=0)name_index = name_index*7;
 				//System.out.println("Indice INFO : " + name_index);
-				info_restaurant.setText("Nome : "+restaurant_name.get(name_index)+"\r\n"+"Comune : "+
+				info_restaurant.setText("Nome : "+restaurant_name.get(name_index)+"\r\n"+"Provincia : "+
 				restaurant_name.get(name_index+1)+"\r\n"+"Indirizzo : " + restaurant_name.get(name_index+3)
 				+"\r\n"+"Tipologia : " + restaurant_name.get(name_index+2)+"\r\n"+"Cell : " + restaurant_name.get(name_index+4)
 				+"\r\n"+"Sito web : " + restaurant_name.get(name_index+5)+"\r\n"+"Commento : " + restaurant_name.get(name_index+6));
@@ -357,11 +357,11 @@ public class LogIn {
 	public String create_tupla() {
 		String nome = (tf_nome.getText().equals("")) ? "null":tf_nome.getText();
 		String tmp = (String) comboBox.getSelectedItem();
-		String comune = (comboBox.getSelectedItem().equals("")) ? "null":tmp;
+		String provincia = (comboBox.getSelectedItem().equals("")) ? "null":tmp;
 		
 		String tipologia = (tf_tipologia.getText().equals("")) ? "null":tf_tipologia.getText() ;
 		
-		String tupla = nome+" "+comune+" "+tipologia;
+		String tupla = nome+" "+provincia+" "+tipologia;
 		
 		System.out.println("dal metodo : "+tupla);
 		return tupla;

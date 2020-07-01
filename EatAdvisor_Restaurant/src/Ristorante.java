@@ -191,7 +191,7 @@ public class Ristorante extends JFrame {
 		lblTipologia.setBounds(244, 143, 80, 19);
 		contentPane.add(lblTipologia);
 		
-		JLabel lblComune = new JLabel("Comune : ");
+		JLabel lblComune = new JLabel("Provincia :");
 		lblComune.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblComune.setBounds(25, 102, 74, 14);
 		contentPane.add(lblComune);
