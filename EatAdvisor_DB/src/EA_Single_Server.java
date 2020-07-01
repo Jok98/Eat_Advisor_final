@@ -86,7 +86,7 @@ public class EA_Single_Server extends Thread{
 				tupla = new String[3];
 				String[] query = client_data();
 				System.out.println("ricerca cliente : "+query[0]);
-				db.search_restaurant(query);			
+				db.search_restaurant(query);
 				break;
 			
 			case "Client_comment":

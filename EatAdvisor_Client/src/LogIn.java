@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
@@ -71,11 +72,14 @@ public class LogIn {
 	static JComboBox comboBox = new JComboBox();
 	static JTextField tf_comment;
 	static JLabel lblRecensione;
+	static Server_Client_Int restaurant;
 	static Frame message = new Frame();
 	/**
 	 * Launch the application.
+	 * @throws RemoteException 
+	 * @throws NotBoundException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RemoteException, NotBoundException {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -85,7 +89,10 @@ public class LogIn {
 					e.printStackTrace();
 				}
 			}
+			
 		});
+		
+		
 	}
 
 	/**
@@ -170,20 +177,22 @@ public class LogIn {
 		btnCerca.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				for(int j = 0; j < 2; j++) {
+				
+				//for(int j = 0; j < 3; j++) {
 				try {
+				
+					
 					InetAddress addr = InetAddress.getByName(null);
 					Socket socket = new Socket(addr, 8080);
 					tupla = create_tupla();
 					new  Cliente_Sender(socket,"Cliente_search");
 					registry = LocateRegistry.getRegistry(1099);
-					//while(Cliente_Sender.continue_==false) {Thread.sleep(100);}
-					//list_result.removeAll();
 					
-					Server_Client_Int restaurant =(Server_Client_Int) registry.lookup("Ristorante");
+					restaurant =(Server_Client_Int) registry.lookup("Ristorante");
+					Thread.sleep(500);
 					restaurant_name = restaurant.get_restaurant();
-					values = new String[restaurant_name.size() / 7];
 					
+					values = new String[restaurant_name.size() / 7];
 					int position;
 					for (int i = 0; i < restaurant_name.size() / 7; i++) {
 						position = i * 7;
@@ -205,12 +214,12 @@ public class LogIn {
 						info_restaurant.setText("");
 						Thread.sleep(100);
 					
-				} catch (IOException | NotBoundException | InterruptedException e1) {
+				} catch (IOException | InterruptedException | NotBoundException e1) {
 					System.err.println("Errore ricerca/comunicazione con db");
 					e1.printStackTrace();
 				}
 				
-				}
+				//}
 				
 				System.out.println("Ricevuto dati tramite RMI ");
 				System.out.println("Size lista : " + restaurant_name.size());
