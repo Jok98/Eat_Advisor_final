@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Wed Jul 01 19:34:11 CEST 2020:
-Avvio della versione di Derby The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): istanza a816c00e-0173-0b71-72a0-0000077613d0
+Thu Jul 02 00:11:12 CEST 2020:
+Avvio della versione di Derby The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): istanza a816c00e-0173-0c6f-1176-0000077613d0
 sulla directory di database C:\Users\jokmo\git\Eat_Advisor\EatAdvisor_DB\DB_EM con caricatore classi jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44 
 Caricato da file:/C:/Users/jokmo/git/Eat_Advisor/EatAdvisor_DB/EA_DB_Server.jar
 java.vendor=Oracle Corporation
 java.runtime.version=13+33
-user.dir=C:\Users\jokmo\git\Eat_Advisor\EatAdvisor_Client
+user.dir=C:\Users\jokmo\git\Eat_Advisor\EatAdvisor_DB
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
